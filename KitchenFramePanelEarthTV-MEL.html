@@ -4,16 +4,8 @@
 <title>DAKboard Panel: Live Stream from Melbourne</title>
 <script>
 window.addEventListener('load', function() {
-  var video = document.querySelector('#EarthTV-MEL');
-  function checkLoad() {
-    if (video.readyState === 4) {
-      video.pause();
-    } else {
-      video.pause();
-      setTimeout(checkLoad, 100);
-    }
-  }
-  checkLoad();
+  var video = document.getElementById('EarthTV-MEL');
+  video.setAttribute('src', 'https://615bbe4a37a7.duckdns.org/7cf6d');
 }, false);
 </script>
 <style>
@@ -28,7 +20,7 @@ window.addEventListener('load', function() {
 </head>
 <body>
 <video id="EarthTV-MEL" preload="auto" autoplay muted>
-  <source src="https://615bbe4a37a7.duckdns.org/7cf6d" type="video/webm">
+  <source src="" type="video/webm">
   Your browser does not support HTML5 video.
 </video>
 </body>
