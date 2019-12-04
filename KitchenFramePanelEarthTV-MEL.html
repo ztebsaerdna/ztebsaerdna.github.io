@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
   var video = document.querySelector('#EarthTV-MEL');
   function checkLoad() {
     if (video.readyState === 4) {
-      video.play();
+      video.pause();
     } else {
       setTimeout(checkLoad, 100);
     }
