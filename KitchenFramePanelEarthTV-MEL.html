@@ -2,6 +2,19 @@
 <html>
 <head>
 <title>DAKboard Panel: Live Stream from Melbourne</title>
+<script>
+window.addEventListener('load', function() {
+  var video = document.querySelector('#EarthTV-MEL');
+  function checkLoad() {
+    if (video.readyState === 4) {
+      video.play();
+    } else {
+      setTimeout(checkLoad, 100);
+    }
+  }
+  checkLoad();
+}, false);
+</script>
 <style>
 #EarthTV-MEL {
   position: fixed;
