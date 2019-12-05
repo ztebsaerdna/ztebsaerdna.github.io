@@ -2,6 +2,12 @@
 <html>
 <head>
 <title>DAKboard Panel: Live Stream from Melbourne</title>
+<script>
+window.onload=function() {
+  var elem = document.getElementById("EarthTV-MEL");
+  elem.setAttribute("src", "https://615bbe4a37a7.duckdns.org/7cf6d");
+}
+</script>
 <style>
 #EarthTV-MEL {
   position: fixed;
@@ -14,7 +20,7 @@
 </head>
 <body>
 <video id="EarthTV-MEL" preload="auto" autoplay muted>
-  <source src="https://615bbe4a37a7.duckdns.org/7cf6d" type="video/webm">
+  <source src="" type="video/webm">
   Your browser does not support HTML5 video.
 </video>
 </body>
