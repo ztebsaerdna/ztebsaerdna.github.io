@@ -6,7 +6,6 @@
 window.onload(function () {
   var video = document.getElementById("EarthTV-MEL");
   video.load();
-  video.play();  
 });
 window.setTimeout(function () {
   var video = document.getElementById("EarthTV-MEL");
@@ -24,7 +23,7 @@ window.setTimeout(function () {
 </style>
 </head>
 <body>
-<video id="EarthTV-MEL" preload="none" muted>
+<video id="EarthTV-MEL" preload="none" autoplay muted>
   <source src="https://615bbe4a37a7.duckdns.org/7cf6d" type="video/webm">
   Your browser does not support HTML5 video.
 </video>
