@@ -7,11 +7,8 @@ window.onload=function() {
   var elem = document.getElementById("EarthTV-MEL");
   var video = document.querySelector("#EarthTV-MEL");
   function checkLoad() {
-    if (video.readyState === 4) {
-    } else {
-      elem.setAttribute("src", "https://615bbe4a37a7.duckdns.org/7cf6d");
-      window.setTimeout(checkLoad, 5000);
-    }
+    elem.setAttribute("src", "https://615bbe4a37a7.duckdns.org/7cf6d");
+    window.setTimeout(checkLoad, 5000);
   }
   checkLoad();
 }
