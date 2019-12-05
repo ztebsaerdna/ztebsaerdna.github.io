@@ -6,6 +6,10 @@
 window.setTimeout(function () {
   var video = document.querySelector("#EarthTV-MEL");
   video.load();
+}, 10000);
+window.setTimeout(function () {
+  var video = document.getElementById("EarthTV-MEL");
+  video.pause();
 }, 30000);
 </script>
 <style>
