@@ -3,10 +3,10 @@
 <head>
 <title>DAKboard Panel: Live Stream from Melbourne</title>
 <script>
-window.setTimeout(function () {
-  var video = document.querySelector("#EarthTV-MEL");
+window.onload(function () {
+  var video = document.getElementById("EarthTV-MEL");
   video.load();
-}, 10000);
+});
 window.setTimeout(function () {
   var video = document.getElementById("EarthTV-MEL");
   video.pause();
