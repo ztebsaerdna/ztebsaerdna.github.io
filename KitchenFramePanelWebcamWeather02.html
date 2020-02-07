@@ -9,15 +9,16 @@
 <title>Live Image from Melbourne and Weather</title>
 <style>
 .image-container {
-  padding-bottom: 56.25%;
-  padding-top: 0px;
-  height: 0;
-  overflow: hidden;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 .weather-container {
   position: absolute;
   right: 0;
-  top: 0;
+  bottom: 0;
   min-width: 330px;
   min-height: 100%;
 }
@@ -26,7 +27,7 @@
 <body>
 <div class="container">
   <div class="image-container">
-    <img src="https://api.deckchair.com/v1/viewer/camera/5cc8776c9758e1656d1a9ac6?preset=large&width=1920&height=1080&quality=100&panelMode=false&format=jpg&download=false">
+    <img src="https://api.deckchair.com/v1/viewer/camera/5cc8776c9758e1656d1a9ac6?preset=medium&width=1920&height=1080&quality=100&panelMode=false&format=jpg&download=false">
   </div>
   <div class="weather-container">
 <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
