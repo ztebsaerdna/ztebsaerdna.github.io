@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
-<title>Image Stream from Melbourne and Weather</title>
+<title>Image Stream from Melbourne, Weather, and Forex Cross Rates</title>
 <style>
 .image-container {
   position: fixed;
@@ -14,7 +14,7 @@
   min-width: 100%;
   min-height: 100%;
 }
-.weather-container {
+.widget-container {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -28,32 +28,32 @@
   <div class="image-container">
     <img src="https://rbrndl.duckdns.org/d9cfa">
   </div>
-  <div class="weather-container">
+  <div class="widget-container">
     <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
     <script>
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/currencies/forex-cross-rates/" rel="noopener" target="_blank"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/currencies/forex-cross-rates/" rel="noopener" target="_blank"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
       {
-        "width": "460",
+        "width":  "460",
         "height": "160",
         "currencies": [
           "EUR",
           "CHF",
           "GBP",
           "AUD",
-          "USD"
+          "CAD"
         ],
         "isTransparent": true,
         "colorTheme": "light",
         "locale": "en"
       }
-    </script>
-  </div>
+      </script>
     </div>
+  </div>
 </div>
 </body>
 </html>
