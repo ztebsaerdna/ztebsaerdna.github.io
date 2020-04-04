@@ -21,6 +21,13 @@
   min-width: 330px;
   min-height: 100%;
 }
+.bottom-widget-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 1080px;
+  min-height: 10%;
+}
 </style>
 </head>
 <body>
@@ -49,6 +56,34 @@
         "isTransparent": true,
         "autosize": false,
         "largeChartUrl": ""
+      }
+      </script>
+    </div>
+  </div>
+  <div class="bottom-widget-container">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          {
+            "description": "EUR/USD",
+            "proName": "FX:EURUSD"
+          },
+          {
+            "description": "EUR/CAD",
+            "proName": "FX:EURCAD"
+          },
+          {
+            "description": "EUR/BRL",
+            "proName": "FX_IDC:EURBRL"
+          }
+        ],
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "locale": "en"
       }
       </script>
     </div>
