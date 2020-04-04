@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
-<title>Image Stream from Melbourne, Weather, and Forex Cross Rates</title>
+<title>Image Stream from Melbourne, Weather, and Forex Data</title>
 <style>
 .image-container {
   position: fixed;
@@ -18,7 +18,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  min-width: 460px;
+  min-width: 330px;
   min-height: 100%;
 }
 </style>
@@ -35,22 +35,20 @@
     </script>
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/currencies/forex-cross-rates/" rel="noopener" target="_blank"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX-EURAUD/" rel="noopener" target="_blank"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
       {
-        "width":  "460",
-        "height": "160",
-        "currencies": [
-          "EUR",
-          "CHF",
-          "GBP",
-          "AUD",
-          "CAD"
-        ],
-        "isTransparent": true,
-        "colorTheme": "light",
+        "symbol": "FX:EURAUD",
+        "width": "330",
+        "height": "220",
         "locale": "en",
-        "disableCrossClickHref": true
+        "dateRange": "12m",
+        "colorTheme": "light",
+        "trendLineColor": "#37a6ef",
+        "underLineColor": "#E3F2FD",
+        "isTransparent": true,
+        "autosize": false,
+        "largeChartUrl": ""
       }
       </script>
     </div>
