@@ -1,34 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=1080, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
@@ -40,12 +13,11 @@
   top: 0px;
   min-width: 100%;
   min-height: 100%;
-  max-width: 1080px;
 }
-.top-widget-container {
+.widget-container {
   position: absolute;
   right: 0px;
-  top: 0px;
+  bottom: 0px;
   min-width: 330px;
   min-height: 100%;
 }
@@ -54,29 +26,29 @@
 <body>
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
-  <div class="top-widget-container">
-    <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
-    <script>
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</div>
+<div class="widget-container">
+  <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+  </script>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async> {
+      "symbol": "FX:EURAUD",
+      "width": "330",
+      "height": "200",
+      "locale": "en",
+      "dateRange": "12m",
+      "colorTheme": "light",
+      "trendLineColor": "#37a6ef",
+      "underLineColor": "#E3F2FD",
+      "isTransparent": true,
+      "autosize": false,
+      "largeChartUrl": ""
+    }
     </script>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async> {
-        "symbol": "FX:EURAUD",
-        "width": "330",
-        "height": "200",
-        "locale": "en",
-        "dateRange": "12m",
-        "colorTheme": "light",
-        "trendLineColor": "#37a6ef",
-        "underLineColor": "#E3F2FD",
-        "isTransparent": true,
-        "autosize": false,
-        "largeChartUrl": ""
-      }
-      </script>
-    </div>
   </div>
 </div>
 </body>
