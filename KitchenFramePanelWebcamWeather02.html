@@ -21,61 +21,11 @@
   min-width: 330px;
   min-height: 100%;
 }
-.image-widget-container {
-  position: relative;
-  left: 0px;
-  bottom: 0px;
-  min-width: 100%;
-}
 </style>
 </head>
 <body>
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
-  <div class="image-widget-container">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          {
-            "description": "EUR/AUD",
-            "proName": "FX:EURAUD"
-          },
-          {
-            "description": "GBP/CHF",
-            "proName": "FX:GBPCHF"
-          },
-          {
-            "description": "CHF/AUD",
-            "proName": "FX_IDC:CHFAUD"
-          },
-          {
-            "description": "EUR/BRL",
-            "proName": "FX_IDC:EURBRL"
-          },
-          {
-            "description": "EUR/CAD",
-            "proName": "FX:EURCAD"
-          },
-          {
-            "description": "EUR/GBP",
-            "proName": "FX:EURGBP"
-          },
-          {
-            "description": "EUR/USD",
-            "proName": "FX:EURUSD"
-          }
-        ],
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "locale": "en"
-      }
-      </script>
-    </div>
-  </div>
 </div>
 <div class="widget-container">
   <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
@@ -85,18 +35,12 @@
   <div class="tradingview-widget-container">
     <div class="tradingview-widget-container__widget"></div>
     <div class="tradingview-widget-copyright"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async> {
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async> {
       "symbol": "FX:EURAUD",
       "width": "330",
-      "height": "200",
-      "locale": "en",
-      "dateRange": "12m",
-      "colorTheme": "dark",
-      "trendLineColor": "#37a6ef",
-      "underLineColor": "#E3F2FD",
+      "colorTheme": "light",
       "isTransparent": true,
-      "autosize": false,
-      "largeChartUrl": ""
+      "locale": "en"
     }
     </script>
   </div>
