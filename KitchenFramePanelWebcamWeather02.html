@@ -7,26 +7,6 @@
 <meta http-equiv="pragma" content="no-cache">
 <title>Image Stream from Melbourne, Weather, and Forex Data</title>
 <style>
-.image-container {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  min-width: 100%;
-  min-height: 100%;
-}
-.widget-container {
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-  min-width: 330px;
-  min-height: 100%;
-}
-.image-widget-container {
-  position: relative;
-  left: 0px;
-  bottom: 40px;
-  min-width: 100%;
-}
 @keyframes cfFadeInOut {
   0% {
     opacity:1;
@@ -41,17 +21,45 @@
     opacity:0;
   }
 }
-#cf img.top {
+#image-container {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+}
+#image-container img {
+  position: fixed;
+  left: 0px;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+#image-container img.top {
 animation-name: cfFadeInOut;
 animation-timing-function: ease-in-out;
 animation-iteration-count: infinite;
 animation-duration: 10s;
 animation-direction: alternate;
 }
+.widget-container {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  min-width: 330px;
+  min-height: 100%;
+}
+.image-widget-container {
+  position: relative;
+  left: 0px;
+  bottom: 40px;
+  min-width: 100%;
+}
 </style>
 </head>
 <body>
-<div id="cf" class="image-container">
+<div id="image-container">
   <img class="bottom" src="https://rbrndl.duckdns.org/d9cfa">
   <img class="top" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-photo%2Fwhite-transparent-leaf-on-mirror-260nw-1029171697.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fimage&tbnid=RkjAFRQNR5bUxM&vet=12ahUKEwjYyLvIqfvqAhUPgEsFHa4FAPoQMygAegUIARDOAQ..i&docid=QooZsUX3wOLfLM&w=381&h=280&q=image&ved=2ahUKEwjYyLvIqfvqAhUPgEsFHa4FAPoQMygAegUIARDOAQ">
   <div class="image-widget-container">
