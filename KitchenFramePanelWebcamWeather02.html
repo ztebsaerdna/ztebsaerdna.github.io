@@ -27,11 +27,33 @@
   bottom: 40px;
   min-width: 100%;
 }
+@keyframes cfFadeInOut {
+  0% {
+    opacity:1;
+  }
+  45% {
+    opacity:1;
+  }
+  55% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+#cf img.top {
+animation-name: cfFadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 10s;
+animation-direction: alternate;
+}
 </style>
 </head>
 <body>
-<div class="image-container">
-  <img src="https://rbrndl.duckdns.org/d9cfa">
+<div id="cf" class="image-container">
+  <img class="bottom" src="https://rbrndl.duckdns.org/d9cfa">
+  <img class="top" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-photo%2Fwhite-transparent-leaf-on-mirror-260nw-1029171697.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fimage&tbnid=RkjAFRQNR5bUxM&vet=12ahUKEwjYyLvIqfvqAhUPgEsFHa4FAPoQMygAegUIARDOAQ..i&docid=QooZsUX3wOLfLM&w=381&h=280&q=image&ved=2ahUKEwjYyLvIqfvqAhUPgEsFHa4FAPoQMygAegUIARDOAQ">
   <div class="image-widget-container">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
