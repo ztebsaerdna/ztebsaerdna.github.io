@@ -38,7 +38,7 @@
 <script>
 window.setInterval("reloadIFrame();", 30000);
 function reloadIFrame() {
-  document.getElementById('datawrapper-chart-Xye26').contentWindow.location.reload();
+  var iframe = document.getElementById('datawrapper-chart-Xye26'); iframe.reload(true); 
 }
 </script>
 </head>
