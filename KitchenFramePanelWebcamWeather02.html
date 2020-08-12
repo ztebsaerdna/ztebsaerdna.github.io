@@ -5,8 +5,12 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
-<title>Image Stream from Melbourne, Weather, and Forex Data</title>
+<title>Image Stream from Melbourne, Weather, Forex Data, and Tram Arrival Predictions</title>
 <style>
+body {
+  opacity: 0;
+  transition: opacity 5s;
+  }
 .image-container {
   position: fixed;
   left: 0px;
@@ -29,7 +33,7 @@
 }
 </style>
 </head>
-<body>
+<body onload="document.body.style.opacity='1'">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
@@ -40,24 +44,12 @@
       {
         "symbols": [
           {
-            "description": "EUR/AUD",
-            "proName": "FX:EURAUD"
-          },
-          {
-            "description": "GBP/CHF",
-            "proName": "FX:GBPCHF"
-          },
-          {
             "description": "CHF/AUD",
             "proName": "FX_IDC:CHFAUD"
           },
           {
-            "description": "EUR/BRL",
-            "proName": "FX_IDC:EURBRL"
-          },
-          {
-            "description": "EUR/CAD",
-            "proName": "FX:EURCAD"
+            "description": "EUR/AUD",
+            "proName": "FX:EURAUD"
           },
           {
             "description": "EUR/GBP",
@@ -66,6 +58,10 @@
           {
             "description": "EUR/USD",
             "proName": "FX:EURUSD"
+          },
+          {
+            "description": "GBP/CHF",
+            "proName": "FX:GBPCHF"
           }
         ],
         "colorTheme": "dark",
@@ -82,18 +78,6 @@
   <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async> {
-      "symbol": "FX:EURAUD",
-      "width": "330",
-      "colorTheme": "light",
-      "isTransparent": true,
-      "locale": "en"
-    }
-    </script>
-  </div>
 </div>
 </body>
 </html>
