@@ -7,6 +7,10 @@
 <meta http-equiv="pragma" content="no-cache">
 <title>Image Stream from Melbourne, Weather, and Forex Data</title>
 <style>
+body {
+  opacity: 0;
+  transition: opacity 3s;
+}
 .image-container {
   position: fixed;
   left: 0px;
@@ -29,7 +33,7 @@
 }
 </style>
 </head>
-<body>
+<body onload="document.body.style.opacity='1'">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
