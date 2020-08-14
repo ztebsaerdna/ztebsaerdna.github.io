@@ -44,8 +44,23 @@ body {
   transition: opacity 1s;
 }
 </style>
+<script>
+  function crossfade() {
+    var iframe_bottom = document.getElementById("tramtracker-bottom");
+    var iframe_top = document.getElementById("tramtracker-top");
+
+    iframe_bottom.onload = "setTimeout(function(){ document.getElementById('" + iframe_bottom.id + "').style.opacity='1'; document.getElementById('" + iframe_top.id + "').style.opacity='0'; }, 1000);
+    iframe_top.onload = "setTimeout(function(){ document.getElementById('" + iframe_top.id + "').style.opacity='1'; document.getElementById('" + iframe_bottom.id + "').style.opacity='0'; }, 1000);
+    if (iframe_top.style.opacity == "1") {
+      iframe_top.src = iframe_top.src
+    } else {
+      iframe_bottom.src = iframe_bottom.src
+    }
+    setTimeout(crossfade(), 30000)
+  }
+</script>
 </head>
-<body onload="setTimeout(function(){ document.body.style.opacity='1' }, 1000)">
+<body onload="setTimeout(function(){ document.body.style.opacity='1' }, 1000); setTimeout(crossfade(), 30000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
