@@ -9,7 +9,7 @@
 <style>
 body {
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 5s;
 }
 .image-container {
   position: fixed;
@@ -58,7 +58,7 @@ body {
   }
 </script>
 </head>
-<body onload="setTimeout(function(){ document.body.style.opacity='1' }, 1000); setTimeout(crossfade, 60000)">
+<body onload="setTimeout(function(){ document.body.style.opacity='1' }, 3000); setTimeout(crossfade, 60000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
@@ -104,9 +104,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div id="tramtracker-cf-container">
-    <iframe onload="setTimeout(function(){ document.getElementById('tramtracker-bottom').style.opacity='1'; document.getElementById('tramtracker-top').style.opacity='0' }, 2000)" class="bottom" title="Stop D18 - Victoria Harbour Docklands towards City" aria-label="chart" id="tramtracker-bottom" src="https://datawrapper.dwcdn.net/Xye26" scrolling="no" frameborder="0" style="border: none;" width="330" height="200">
+    <iframe onload="setTimeout(function(){ document.getElementById('tramtracker-bottom').style.opacity='1'; document.getElementById('tramtracker-top').style.opacity='0' }, 3000)" class="bottom" title="Stop D18 - Victoria Harbour Docklands towards City" aria-label="chart" id="tramtracker-bottom" src="https://datawrapper.dwcdn.net/Xye26" scrolling="no" frameborder="0" style="border: none;" width="330" height="200">
     </iframe>
-    <iframe onload="setTimeout(function(){ document.getElementById('tramtracker-top').style.opacity='1'; document.getElementById('tramtracker-bottom').style.opacity='0' }, 2000)" class="top" title="Stop D18 - Victoria Harbour Docklands towards City" aria-label="chart" id="tramtracker-top" src="https://datawrapper.dwcdn.net/Xye26" scrolling="no" frameborder="0" style="border: none;" width="330" height="200">
+    <iframe onload="setTimeout(function(){ document.getElementById('tramtracker-top').style.opacity='1'; document.getElementById('tramtracker-bottom').style.opacity='0' }, 3000)" class="top" title="Stop D18 - Victoria Harbour Docklands towards City" aria-label="chart" id="tramtracker-top" src="https://datawrapper.dwcdn.net/Xye26" scrolling="no" frameborder="0" style="border: none;" width="330" height="200">
     </iframe>
   </div>
 </div>
