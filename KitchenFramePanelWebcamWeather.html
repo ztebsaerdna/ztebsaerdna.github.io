@@ -50,9 +50,9 @@ body {
     var iframe_top = document.getElementById("tramtracker-top")
 
     if (iframe_top.style.opacity == "1") {
-      iframe_bottom.src = iframe_bottom.src
+      iframe_bottom.src += " "
     } else {
-      iframe_top.src = iframe_top.src
+      iframe_top.src += " "
     }
     setTimeout(crossfade, 60000)
   }
