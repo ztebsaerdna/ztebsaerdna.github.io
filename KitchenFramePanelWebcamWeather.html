@@ -9,7 +9,7 @@
 <style>
 body {
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 5s;
 }
 .image-container {
   position: fixed;
@@ -54,11 +54,10 @@ body {
     } else {
       iframe_top.src += " "
     }
-    setTimeout(crossfade, 60000)
   }
 </script>
 </head>
-<body onload="setTimeout(function(){ document.body.style.opacity='1' }, 3000); setTimeout(crossfade, 60000)">
+<body onload="document.body.style.opacity='1'; setInterval(crossfade, 60000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
