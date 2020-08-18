@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
-<title>Image Stream from Melbourne, Weather, Forex Data, Predicted Tram Arrival Times</title>
+<title>Image Stream from Melbourne, Weather, Forex Data</title>
 <style>
 body {
   opacity: 0;
@@ -31,14 +31,14 @@ body {
   bottom: 40px;
   min-width: 100%;
 }
-#tramtracker-cf-container {
+#weather-cf-container {
   position: relative;
   right: 0px;
   bottom: 0px;
-  min-width: 330px;
+  min-width: 600px;
   min-height: 100%;
 }
-#tramtracker-cf-container iframe {
+#weather-cf-container iframe {
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
@@ -46,8 +46,8 @@ body {
 </style>
 <script>
   function crossfade(){
-    var iframe_bottom = document.getElementById("tramtracker-bottom")
-    var iframe_top = document.getElementById("tramtracker-top")
+    var iframe_bottom = document.getElementById("weather-bottom")
+    var iframe_top = document.getElementById("weather-top")
 
     if (iframe_top.style.opacity == "1") {
       iframe_bottom.src += " "
@@ -102,10 +102,10 @@ body {
   <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
-  <div id="tramtracker-cf-container">
-    <iframe onload="setTimeout(function(){ document.getElementById('tramtracker-bottom').style.opacity='1'; document.getElementById('tramtracker-top').style.opacity='0' }, 3000)" class="bottom" title="Stop D18 - Victoria Harbour Docklands towards City" aria-label="chart" id="tramtracker-bottom" src="https://datawrapper.dwcdn.net/Xye26" scrolling="no" frameborder="0" style="border: none;" width="330" height="210">
+  <div id="weather-cf-container">
+    <iframe onload="setTimeout(function(){ document.getElementById('weather-bottom').style.opacity='1'; document.getElementById('weather-top').style.opacity='0' }, 3000)" class="bottom" title="Realtime UV Index" aria-label="Interactive line chart" id="weather-bottom" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="600" height="400"></iframe>
     </iframe>
-    <iframe onload="setTimeout(function(){ document.getElementById('tramtracker-top').style.opacity='1'; document.getElementById('tramtracker-bottom').style.opacity='0' }, 3000)" class="top" title="Stop D18 - Victoria Harbour Docklands towards City" aria-label="chart" id="tramtracker-top" src="https://datawrapper.dwcdn.net/Xye26" scrolling="no" frameborder="0" style="border: none;" width="330" height="210">
+    <iframe onload="setTimeout(function(){ document.getElementById('weather-top').style.opacity='1'; document.getElementById('weather-bottom').style.opacity='0' }, 3000)" class="top" title="Realtime UV Index" aria-label="Interactive line chart" id="weather-bottom" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="600" height="400"></iframe>
     </iframe>
   </div>
 </div>
