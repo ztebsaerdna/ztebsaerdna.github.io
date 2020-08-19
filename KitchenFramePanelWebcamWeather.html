@@ -46,13 +46,13 @@ body {
 </style>
 <script>
   function crossfade(){
-    var iframe_low = document.getElementById("cf-low")
-    var iframe_high = document.getElementById("cf-high")
+    var iframe_cf_low = document.getElementById("cf-low")
+    var iframe_cf_high = document.getElementById("cf-high")
 
-    if (iframe_high.style.opacity == "1") {
-      iframe_low.src += " "
+    if (iframe_cf_high.style.opacity == "1") {
+      iframe_cf_low.src += " "
     } else {
-      iframe_high.src += " "
+      iframe_cf_high.src += " "
     }
   }
 </script>
@@ -103,9 +103,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div id="crossfade-container">
-    <iframe onload="setTimeout(function(){ document.getElementById('cf-low').style.opacity='1'; document.getElementById('cf-high').style.opacity='0' }, 5000)" class="low" title="" aria-label="Interactive line chart" id="cf-low" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="200"></iframe>
+    <iframe onload="setTimeout(function(){ document.getElementById('cf-low').style.opacity='1'; document.getElementById('cf-high').style.opacity='0' }, 5000)" class="low" title="" aria-label="Interactive line chart" id="cf-low" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="195"></iframe>
     </iframe>
-    <iframe onload="setTimeout(function(){ document.getElementById('cf-high').style.opacity='1'; document.getElementById('cf-low').style.opacity='0' }, 5000)" class="high" title="" aria-label="Interactive line chart" id="cf-high" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="200"></iframe>
+    <iframe onload="setTimeout(function(){ document.getElementById('cf-high').style.opacity='1'; document.getElementById('cf-low').style.opacity='0' }, 5000)" class="high" title="" aria-label="Interactive line chart" id="cf-high" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="195"></iframe>
     </iframe>
   </div>
 </div>
