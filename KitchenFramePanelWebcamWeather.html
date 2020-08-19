@@ -5,11 +5,11 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
-<title>Image Stream from Melbourne, Weather, Forex Data</title>
+<title>Melbourne Image and Weather</title>
 <style>
 body {
   opacity: 0;
-  transition: opacity 5s;
+  transition: opacity 3s;
 }
 .image-container {
   position: fixed;
@@ -31,14 +31,14 @@ body {
   bottom: 40px;
   min-width: 100%;
 }
-#weather-cf-container {
+#crossfade-container {
   position: relative;
-  left: 0px;
+  right: 0px;
   bottom: 0px;
-  min-width: 600px;
+  min-width: 330px;
   min-height: 100%;
 }
-#weather-cf-container iframe {
+#crossfade-container iframe {
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
@@ -46,13 +46,13 @@ body {
 </style>
 <script>
   function crossfade(){
-    var iframe_bottom = document.getElementById("weather-bottom")
-    var iframe_top = document.getElementById("weather-top")
+    var iframe_low = document.getElementById("cf-low")
+    var iframe_high = document.getElementById("cf-high")
 
-    if (iframe_top.style.opacity == "1") {
-      iframe_bottom.src += " "
+    if (iframe_high.style.opacity == "1") {
+      iframe_low.src += " "
     } else {
-      iframe_top.src += " "
+      iframe_high.src += " "
     }
   }
 </script>
@@ -102,12 +102,12 @@ body {
   <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
-</div>
-<div id="weather-cf-container">
-  <iframe onload="setTimeout(function(){ document.getElementById('weather-bottom').style.opacity='1'; document.getElementById('weather-top').style.opacity='0' }, 5000)" class="bottom" title="Realtime UV Index" aria-label="Interactive line chart" id="weather-bottom" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="600" height="400"></iframe>
-  </iframe>
-  <iframe onload="setTimeout(function(){ document.getElementById('weather-top').style.opacity='1'; document.getElementById('weather-bottom').style.opacity='0' }, 5000)" class="top" title="Realtime UV Index" aria-label="Interactive line chart" id="weather-top" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="600" height="400"></iframe>
-  </iframe>
+  <div id="crossfade-container">
+    <iframe onload="setTimeout(function(){ document.getElementById('cf-low').style.opacity='1'; document.getElementById('cf-high').style.opacity='0' }, 5000)" class="low" title="" aria-label="Interactive line chart" id="cf-low" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="200"></iframe>
+    </iframe>
+    <iframe onload="setTimeout(function(){ document.getElementById('cf-high').style.opacity='1'; document.getElementById('cf-low').style.opacity='0' }, 5000)" class="high" title="" aria-label="Interactive line chart" id="cf-high" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="200"></iframe>
+    </iframe>
+  </div>
 </div>
 </body>
 </html>
