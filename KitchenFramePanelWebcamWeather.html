@@ -57,7 +57,7 @@ body {
   }
 </script>
 </head>
-<body onload="document.body.style.opacity='1'; setInterval(crossfade, 60000)">
+<body onload="setTimeout(function(){document.body.style.opacity='1'; setInterval(crossfade, 60000)}, 1000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
