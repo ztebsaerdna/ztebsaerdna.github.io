@@ -41,7 +41,7 @@ body {
 #crossfade-container iframe {
   position: absolute;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 2s;
 }
 </style>
 <script>
@@ -49,15 +49,23 @@ body {
     var iframe_cf_low = document.getElementById("cf-low")
     var iframe_cf_high = document.getElementById("cf-high")
 
-    if (iframe_cf_high.style.opacity == "1") {
-      iframe_cf_low.src += " "
+    if (iframe_cf_high.style.opacity == "0") {
+      if (iframe_cf_high.src == "") {
+        iframe_cf_high.src = "https://datawrapper.dwcdn.net/Ztff6"
+      } else {
+        iframe_cf_high.src += " "
+      }
     } else {
-      iframe_cf_high.src += " "
-    }
+      if (iframe_cf_low.src == "") {
+        iframe_cf_low.src = "https://datawrapper.dwcdn.net/Wbob5"
+      } else {
+        iframe_cf_low.src += " "
+      )
+    )
   }
 </script>
 </head>
-<body onload="document.body.style.opacity='1'; setInterval(crossfade, 60000)">
+<body onload="document.body.style.opacity='1'; crossfade(); setInterval(crossfade, 60000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
@@ -103,9 +111,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div id="crossfade-container">
-    <iframe onload="setTimeout(function(){ document.getElementById('cf-low').style.opacity='1'; document.getElementById('cf-high').style.opacity='0' }, 5000)" class="low" title="" id="cf-low" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe onload="setTimeout(function(){ document.getElementById('cf-low').style.opacity='1'; document.getElementById('cf-high').style.opacity='0' }, 5000)" class="low" title="" id="cf-low" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
     </iframe>
-    <iframe onload="setTimeout(function(){ document.getElementById('cf-high').style.opacity='1'; document.getElementById('cf-low').style.opacity='0' }, 5000)" class="high" title="" id="cf-high" src="https://datawrapper.dwcdn.net/Ztff6" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe onload="setTimeout(function(){ document.getElementById('cf-high').style.opacity='1'; document.getElementById('cf-low').style.opacity='0' }, 5000)" class="high" title="" id="cf-high" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
     </iframe>
   </div>
 </div>
