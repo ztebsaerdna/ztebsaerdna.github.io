@@ -9,7 +9,7 @@
 <style>
 body {
   opacity: 0;
-  transition: opacity 5s;
+  transition: opacity 3s;
 }
 .image-container {
   position: fixed;
@@ -41,31 +41,31 @@ body {
 #crossfade-container iframe {
   position: absolute;
   opacity: 0;
-  transition: opacity 2s;
+  transition: opacity 1s;
 }
 </style>
 <script>
   function crossfade(){
-    var iframe_cf_low = document.getElementById("cf-low")
-    var iframe_cf_medium = document.getElementById("cf-medium")
+    var iframe_cf_1st = document.getElementById("datawrapper-chart-ah62x")
+    var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5")
 
-    if (iframe_cf_low.style.opacity == "0") {
-      iframe_cf_low.style.opacity = "1";
-      iframe_cf_medium.style.opacity = "0";
+    if (iframe_cf_1st.style.opacity == "0") {
+      iframe_cf_1st.style.opacity = "1";
+      iframe_cf_2nd.style.opacity = "0";
     } else {
-      iframe_cf_low.style.opacity = "0";
-      iframe_cf_medium.style.opacity = "1";
+      iframe_cf_1st.style.opacity = "0";
+      iframe_cf_2nd.style.opacity = "1";
     }
   }
 </script>
 </head>
-<body onload="document.body.style.opacity = '1'; setInterval(crossfade, 20000)">
+<body onload="setTimeout(function(){ document.body.style.opacity = '1'; setInterval(crossfade, 20000)}, 3000)">
 <div class="image-container">
-<iframe src="https://rtsp.me/embed/Grt4as8Y/" scrolling="no" frameborder="0" style="border: none;"></iframe>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  <img src="https://rbrndl.duckdns.org/d9cfa">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
       {
         "symbols": [
           {
@@ -94,8 +94,7 @@ body {
         "displayMode": "adaptive",
         "locale": "en"
       }
-      </script>
-    </div>
+    </script>
   </div>
 </div>
 <div class="widget-container">
@@ -104,10 +103,8 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div id="crossfade-container">
-    <iframe onload="" class="low" title="" id="cf-low" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    </iframe>
-    <iframe onload="setTimeout(function(){ document.getElementById('cf-medium').style.opacity = '1' }, 5000)" class="medium" title="" id="cf-medium" src="https://datawrapper.dwcdn.net/ah62x" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    </iframe>
+    <iframe title="Melbourne Realtime UV Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Melbourne Hourly Forecast" aria-label="Interactive line chart" id="datawrapper-chart-ah62x" src="https://datawrapper.dwcdn.net/ah62x" scrolling="no" frameborder="0" style="border: none;" width="330" height="220" onload="document.getElementById(this.id).style.opacity = '1'"></iframe>
   </div>
 </div>
 </body>
