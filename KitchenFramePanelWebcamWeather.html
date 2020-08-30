@@ -59,7 +59,7 @@ body {
   }
 </script>
 </head>
-<body onload="">
+<body onload="setTimeout(function(){document.body.style.opacity = '1'; setInterval(crossfade, 30000)}, 3000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
@@ -106,7 +106,7 @@ body {
   </script>
   <div id="crossfade-container">
     <iframe title="Melbourne Realtime UV Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Melbourne Hourly Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220" onload="document.getElementById(this.id).style.opacity = '1'; setTimeout(function(){ document.body.style.opacity = '1'; setInterval(crossfade, 20000)}, 1000)"></iframe>
+    <iframe title="Melbourne Hourly Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220" onload="document.getElementById(this.id).style.opacity = '1'"></iframe>
   </div>
 </div>
 </body>
