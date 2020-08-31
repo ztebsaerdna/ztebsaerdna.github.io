@@ -45,6 +45,7 @@ body {
 }
 </style>
 <script>
+  var iteration = 0;
   function crossfade(){
     var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP")
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5")
@@ -56,10 +57,14 @@ body {
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
     }
+    if (iteration < 2) {
+      iteration++
+      setTimeout(crossfade, 30000)
+    }
   }
 </script>
 </head>
-<body onload="setTimeout(function(){document.body.style.opacity = '1'; setInterval(crossfade, 30000)}, 3000)">
+<body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 3000)">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
@@ -106,7 +111,7 @@ body {
   </script>
   <div id="crossfade-container">
     <iframe title="Melbourne Realtime UV Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Melbourne Hourly Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220" onload="document.getElementById(this.id).style.opacity = '1'"></iframe>
+    <iframe title="Melbourne Hourly Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
   </div>
 </div>
 </body>
