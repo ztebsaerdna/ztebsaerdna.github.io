@@ -58,13 +58,13 @@ body {
       iframe_cf_2nd.style.opacity = "1";
     }
     if (iteration > 0) {
-      iteration--
-      setTimeout(crossfade, 30000)
+      iteration--;
+      setTimeout(crossfade, 30000);
     }
   }
 </script>
 </head>
-<body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 5000);">
+<body onload="setTimeout(function() {document.body.style.opacity = '1'; setTimeout(crossfade, 3000);}, 1000);">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
