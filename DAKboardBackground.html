@@ -9,7 +9,7 @@
 <style>
 body {
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 5s;
 }
 .image-container {
   position: fixed;
@@ -45,7 +45,7 @@ body {
 }
 </style>
 <script>
-  var cfIteration = 30;
+  var cfIteration = 31;
   function crossfade(){
     var iframe_cf_1st = document.getElementById("datawrapper-chart-EjRpP");
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-mSXHP");
@@ -53,17 +53,17 @@ body {
 
     if (iframe_cf_1st.style.opacity == "1") {
       iframe_cf_1st.style.opacity = "0";
-      iframe_cf_2nd.style.opacity = "1";
       iframe_cf_3rd.style.opacity = "0";
+      iframe_cf_2nd.style.opacity = "1";
     } else if (iframe_cf_2nd.style.opacity == "1") {
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "0";
       iframe_cf_3rd.style.opacity = "1";
       iframe_cf_1st.src += " ";
     } else {
-      iframe_cf_1st.style.opacity = "1";
       iframe_cf_2nd.style.opacity = "0";
       iframe_cf_3rd.style.opacity = "0";
+      iframe_cf_1st.style.opacity = "1";
     }
     if (cfIteration > 0) {
       cfIteration--;
@@ -72,7 +72,7 @@ body {
   }
 </script>
 </head>
-<body onload="document.body.style.opacity = '1'; setTimeout(function() {crossfade();}, 5000);">
+<body onload="document.body.style.opacity = '1'; setTimeout(function() {crossfade();}, 3000);">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
