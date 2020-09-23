@@ -45,26 +45,34 @@ body {
 }
 </style>
 <script>
-  var iteration = 30;
+  var cfIteration = 30;
   function crossfade(){
-    var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
-    var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
+    var iframe_cf_1st = document.getElementById("datawrapper-chart-EjRpP");
+    var iframe_cf_2nd = document.getElementById("datawrapper-chart-mSXHP");
+    var iframe_cf_3rd = document.getElementById("datawrapper-chart-Wbob5");
 
-    if (iframe_cf_1st.style.opacity != "1") {
-      iframe_cf_1st.style.opacity = "1";
-      iframe_cf_2nd.style.opacity = "0";
-    } else {
+    if (iframe_cf_1st.style.opacity == "1") {
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
+      iframe_cf_3rd.style.opacity = "0";
+    } elseif (iframe_cf_2nd.style.opacity == "1") {
+      iframe_cf_1st.style.opacity = "0";
+      iframe_cf_2nd.style.opacity = "0";
+      iframe_cf_3rd.style.opacity = "1";
+      iframe_cf_1st.src += " ";
+    } else {
+      iframe_cf_1st.style.opacity = "1";
+      iframe_cf_2nd.style.opacity = "0";
+      iframe_cf_3rd.style.opacity = "0";
     }
-    if (iteration > 0) {
-      iteration--;
+    if (cfIteration > 0) {
+      cfIteration--;
       setTimeout(crossfade, 10000);
     }
   }
 </script>
 </head>
-<body onload="setTimeout(function() {crossfade();}, 3000); document.body.style.opacity = '1';">
+<body onload="document.body.style.opacity = '1'; setTimeout(function() {crossfade();}, 5000);">
 <div class="image-container">
   <img src="https://rbrndl.duckdns.org/d9cfa">
   <div class="image-widget-container">
@@ -110,8 +118,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div id="crossfade-container">
-    <iframe title="Melbourne Realtime UV Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Melbourne Hourly Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-EjRpP" src="https://datawrapper.dwcdn.net/EjRpP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
   </div>
 </div>
 </body>
