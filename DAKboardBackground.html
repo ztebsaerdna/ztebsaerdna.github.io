@@ -47,25 +47,24 @@ body {
 <script>
   var cfIteration = 19;
   function crossfade(){
-    var iframe_cf_1st = document.getElementById("datawrapper-chart-hw0d0");
-    var iframe_cf_2nd = document.getElementById("datawrapper-chart-mSXHP");
-    var iframe_cf_3rd = document.getElementById("datawrapper-chart-Wbob5");
+    var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
+    var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
+    var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
 
     if (iframe_cf_1st.style.opacity == "1") {
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
+      iframe_cf_3rd.src = "";
+      iframe_cf_3rd.src = "https://datawrapper.dwcdn.net/hw0d0";
     } else if (iframe_cf_2nd.style.opacity == "1") {
       iframe_cf_2nd.style.opacity = "0";
       iframe_cf_3rd.style.opacity = "1";
-      iframe_cf_1st.src = "";
-      iframe_cf_1st.src = "https://datawrapper.dwcdn.net/hw0d0";
     } else if (iframe_cf_3rd.style.opacity == "1") {
       iframe_cf_3rd.style.opacity = "0";
       iframe_cf_1st.style.opacity = "1";
     } else {
       iframe_cf_1st.style.opacity = "1";
-      iframe_cf_2nd.src = "https://datawrapper.dwcdn.net/mSXHP";
-      iframe_cf_3rd.src = "https://datawrapper.dwcdn.net/Wbob5";
+      iframe_cf_2nd.src = "https://datawrapper.dwcdn.net/Wbob5";
     }
     if (cfIteration > 0) {
       cfIteration--;
@@ -76,42 +75,8 @@ body {
 </head>
 <body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 3000);">
 <div class="image-container">
-  <img src="https://rbrndl.duckdns.org/d9cfa">
+  <img src="https://rebrand.ly/8af634">
   <div class="image-widget-container">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          {
-            "description": "CHF/AUD",
-            "proName": "FX_IDC:CHFAUD"
-          },
-          {
-            "description": "EUR/AUD",
-            "proName": "FX:EURAUD"
-          },
-          {
-            "description": "EUR/GBP",
-            "proName": "FX:EURGBP"
-          },
-          {
-            "description": "EUR/USD",
-            "proName": "FX:EURUSD"
-          },
-          {
-            "description": "GBP/CHF",
-            "proName": "FX:GBPCHF"
-          }
-        ],
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "locale": "en"
-      }
-      </script>
-    </div>
   </div>
 </div>
 <div class="widget-container">
@@ -120,9 +85,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div id="crossfade-container">
-    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="https://datawrapper.dwcdn.net/hw0d0" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
     <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
   </div>
 </div>
 </body>
