@@ -50,10 +50,10 @@ body {
     var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
     var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
-    var timeout = 10000;
+    var timeout = 20000;
 
     if (iframe_cf_1st.style.opacity == "1") {
-      timeout = timeout * 2;
+      timeout = timeout / 2;
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
       iframe_cf_3rd.src = "";
