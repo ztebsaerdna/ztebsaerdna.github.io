@@ -45,13 +45,15 @@ body {
 }
 </style>
 <script>
-  var cfIteration = 19;
+  var cfIteration = 18;
   function crossfade(){
     var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
     var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
+    var timeout = 10000;
 
     if (iframe_cf_1st.style.opacity == "1") {
+      timeout = 20000;
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
       iframe_cf_3rd.src = "";
@@ -68,7 +70,7 @@ body {
     }
     if (cfIteration > 0) {
       cfIteration--;
-      setTimeout(crossfade, 15000);
+      setTimeout(crossfade, timeout);
     }
   }
 </script>
