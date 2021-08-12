@@ -47,10 +47,10 @@ body {
 <script>
   var cfIteration = 21;
   function crossfade(){
+    var timeout = 20000;
     var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
     var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
-    var timeout = 20000;
 
     if (iframe_cf_1st.style.opacity == "1") {
       timeout = timeout / 2;
@@ -76,19 +76,18 @@ body {
   }
 </script>
 </head>
-<body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 3000);">
+<body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 2000);">
 <div class="image-container">
   <img src="https://rebrand.ly/8af634">
   <div class="image-widget-container">
   </div>
 </div>
 <div class="widget-container">
-    <div id="crossfade-container">
-
   <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
   <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
+  <div id="crossfade-container">
     <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
     <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
     <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
