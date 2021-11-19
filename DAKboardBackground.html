@@ -45,14 +45,14 @@ body {
 }
 </style>
 <script>
-  var cfIteration = 540;
+  var cfIteration = 1620;
   function crossfade(){
     var timeout = 20000;
     var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
     var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
 
-    if ((cfIteration % 15) == 0) {
+    if ((cfIteration % 45) == 0) {
       document.getElementById("image").src = "https://rebrand.ly/8af634?z=" + new Date().getTime();
     }
     if (iframe_cf_1st.style.opacity == "1") {
