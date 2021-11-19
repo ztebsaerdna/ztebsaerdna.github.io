@@ -45,7 +45,7 @@ body {
 }
 </style>
 <script>
-  var cfIteration = 1620;
+  var cfIteration = 1619;
   function crossfade(){
     var timeout = 20000;
     var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
@@ -53,13 +53,13 @@ body {
     var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
 
     if ((cfIteration % 45) == 0) {
-      document.getElementById("image").src = "https://rebrand.ly/8af634?z=" + new Date().getTime();
+      document.getElementById("image").src = "https://rebrand.ly/8af634?ms=" + new Date().getTime();
     }
     if (iframe_cf_1st.style.opacity == "1") {
       timeout = timeout / 2;
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
-      if ((cfIteration % 7) == 0) {
+      if ((cfIteration % 18 % 17 % 16) == 0) {
         iframe_cf_3rd.src = "";
         iframe_cf_3rd.src = "https://datawrapper.dwcdn.net/hw0d0/2/";
       }
@@ -83,7 +83,7 @@ body {
 </head>
 <body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 3000);">
 <div class="image-container">
-  <img id="image" src="">
+  <img id="image" src="https://rebrand.ly/8af634">
   <div class="image-widget-container">
   </div>
 </div>
