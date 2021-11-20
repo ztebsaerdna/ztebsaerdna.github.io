@@ -8,8 +8,6 @@
 <title>DAKboard Background: Melbourne Image and Weather</title>
 <style>
 body {
-  opacity: 0;
-  transition: opacity 1s;
 }
 .image-container {
   position: fixed;
@@ -45,6 +43,21 @@ body {
 }
 </style>
 <script>
+  function updateMelbourneImage() {
+    var img = new Image();
+    var elem = document.getElementById("melbourne");
+    
+    img.src = elem.src.split("?")[0] + "?t=" + new Date().getTime();
+    img.onload = function() {
+      elem.src = img.src;
+      img.remove();
+    }
+    img.onerror = function() {
+      img.remove();
+      setTimeout(updateMelbourneImage, 300000);
+    }
+  }
+  
   var cfIteration = 1619;
   function crossfade(){
     var timeout = 20000;
@@ -83,7 +96,7 @@ body {
 </head>
 <body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 3000);">
 <div class="image-container">
-  <img id="image" src="https://rebrand.ly/8af634">
+  <img id="melbourne" src="https://rebrand.ly/8af634" onload="setTimeout(updateMelbourneImage, 900000);" onerror="setTimeout(updateMelbourneImage, 30000);">
   <div class="image-widget-container">
   </div>
 </div>
