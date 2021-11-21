@@ -45,8 +45,8 @@ body {
 <script>
   function updateMelbourneImage() {
     var img = new Image();
-    var elem = document.getElementById("melbourne");
-    
+    var elem = document.getElementById("melbourne-image");
+
     img.src = elem.src.split("?")[0] + "?t=" + new Date().getTime();
     img.onload = function() {
       elem.src = img.src;
@@ -57,7 +57,7 @@ body {
       setTimeout(updateMelbourneImage, 300000);
     }
   }
-  
+
   var cfIteration = 1619;
   function crossfade(){
     var timeout = 20000;
@@ -65,9 +65,6 @@ body {
     var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
     var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
 
-    if ((cfIteration % 45) == 0) {
-      document.getElementById("image").src = "https://rebrand.ly/8af634?ms=" + new Date().getTime();
-    }
     if (iframe_cf_1st.style.opacity == "1") {
       timeout = timeout / 2;
       iframe_cf_1st.style.opacity = "0";
@@ -94,9 +91,9 @@ body {
   }
 </script>
 </head>
-<body onload="document.body.style.opacity = '1'; setTimeout(crossfade, 3000);">
+<body onload="setTimeout(crossfade, 3000);">
 <div class="image-container">
-  <img id="melbourne" src="https://rebrand.ly/8af634" onload="setTimeout(updateMelbourneImage, 900000);" onerror="setTimeout(updateMelbourneImage, 30000);">
+  <img id="melbourne-image" src="https://rebrand.ly/8af634" onload="setTimeout(updateMelbourneImage, 600000);" onerror="setTimeout(updateMelbourneImage, 60000);">
   <div class="image-widget-container">
   </div>
 </div>
