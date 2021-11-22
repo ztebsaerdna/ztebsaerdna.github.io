@@ -59,20 +59,10 @@ body {
   }
 
   function updateDatawrapperChart(elem) {
-    var elem_new = document.createElement("iframe");
+    const src = elem.src;
 
-    elem_new.src = elem_src;
-    elem_new.onload = function() {
-      elem_new.title = elem.title;
-      elem_new.aria-label = elem.aria-label;
-      elem_new.id = elem.id;
-      elem_new.scrolling = elem.scrolling;
-      elem_new.frameborder = elem.frameborder;
-      elem_new.style = elem.style;
-      elem_new.width = elem.width;
-      elem_new.height = elem.height;
-      elem.replaceWith(elem_new);
-    }
+    elem.src = "";
+    elem.src = src;
   }
 
   function update() {
