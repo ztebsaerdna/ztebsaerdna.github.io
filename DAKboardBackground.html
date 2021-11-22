@@ -43,33 +43,35 @@ body {
 }
 </style>
 <script>
+  var updateIteration = 1619;
+
   function updateMelbourneImage() {
-    var img = new Image();
-    var elem = document.getElementById("melbourne-image");
+    const img = new Image();
+    const elem = document.getElementById("melbourne-image");
 
     img.src = elem.src.split("?")[0] + "?t=" + new Date().getTime();
     img.onload = function() {
       elem.src = img.src;
-      img.remove();
     }
     img.onerror = function() {
-      img.remove();
       setTimeout(updateMelbourneImage, 300000);
     }
   }
 
-  var cfIteration = 1619;
-  function crossfade(){
+  function update() {
     var timeout = 20000;
-    var iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
-    var iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
-    var iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
+    const iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
+    const iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
+    const iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
 
+    if (updateIteration % 45 == 0) {
+      updateMelbourneImage();
+    }
     if (iframe_cf_1st.style.opacity == "1") {
       timeout = timeout / 2;
       iframe_cf_1st.style.opacity = "0";
       iframe_cf_2nd.style.opacity = "1";
-      if ((cfIteration % 18 % 17 % 16) == 0) {
+      if ((updateIteration % 18 % 17 % 16) == 0) {
         iframe_cf_3rd.src = "";
         iframe_cf_3rd.src = "https://datawrapper.dwcdn.net/hw0d0/2/";
       }
@@ -84,16 +86,16 @@ body {
       iframe_cf_1st.style.opacity = "1";
       iframe_cf_2nd.src = "https://datawrapper.dwcdn.net/Wbob5/66/";
     }
-    if (cfIteration > 0) {
-      cfIteration--;
-      setTimeout(crossfade, timeout);
+    if (updateIteration > 0) {
+      updateIteration--;
+      setTimeout(update, timeout);
     }
   }
 </script>
 </head>
-<body onload="setTimeout(crossfade, 3000);">
+<body onload="setTimeout(update, 3000);">
 <div class="image-container">
-  <img id="melbourne-image" src="https://rebrand.ly/8af634" onload="setTimeout(updateMelbourneImage, 600000);" onerror="setTimeout(updateMelbourneImage, 60000);">
+  <img id="melbourne-image" src="https://rebrand.ly/8af634" onerror="setTimeout(updateMelbourneImage, 60000);">
   <div class="image-widget-container">
   </div>
 </div>
