@@ -58,33 +58,48 @@ body {
     }
   }
 
+  function updateDatawrapperChart(elem) {
+    var elem_new = document.createElement("iframe");
+
+    elem_new.src = elem_src;
+    elem_new.onload = function() {
+      elem_new.title = elem.title;
+      elem_new.aria-label = elem.aria-label;
+      elem_new.id = elem.id;
+      elem_new.scrolling = elem.scrolling;
+      elem_new.frameborder = elem.frameborder;
+      elem_new.style = elem.style;
+      elem_new.width = elem.width;
+      elem_new.height = elem.height;
+      elem.replaceWith(elem_new);
+    }
+  }
+
   function update() {
     var timeout = 20000;
-    const iframe_cf_1st = document.getElementById("datawrapper-chart-mSXHP");
-    const iframe_cf_2nd = document.getElementById("datawrapper-chart-Wbob5");
-    const iframe_cf_3rd = document.getElementById("datawrapper-chart-hw0d0");
+    const chart_1 = document.getElementById("datawrapper-chart-mSXHP");
+    const chart_2 = document.getElementById("datawrapper-chart-Wbob5");
+    const chart_3 = document.getElementById("datawrapper-chart-hw0d0");
 
     if (updateIteration % 45 == 0) {
       updateMelbourneImage();
     }
-    if (iframe_cf_1st.style.opacity == "1") {
+    if (chart_1.style.opacity == "1") {
       timeout = timeout / 2;
-      iframe_cf_1st.style.opacity = "0";
-      iframe_cf_2nd.style.opacity = "1";
+      chart_1.style.opacity = "0";
+      chart_2.style.opacity = "1";
       if ((updateIteration % 18 % 17 % 16) == 0) {
-        iframe_cf_3rd.src = "";
-        iframe_cf_3rd.src = "https://datawrapper.dwcdn.net/hw0d0/2/";
+        updateDatawrapperChart(chart_3);
       }
-    } else if (iframe_cf_2nd.style.opacity == "1") {
+    } else if (chart_2.style.opacity == "1") {
       timeout = timeout / 2;
-      iframe_cf_2nd.style.opacity = "0";
-      iframe_cf_3rd.style.opacity = "1";
-    } else if (iframe_cf_3rd.style.opacity == "1") {
-      iframe_cf_3rd.style.opacity = "0";
-      iframe_cf_1st.style.opacity = "1";
+      chart_2.style.opacity = "0";
+      chart_3.style.opacity = "1";
+    } else if (chart_3.style.opacity == "1") {
+      chart_3.style.opacity = "0";
+      chart_1.style.opacity = "1";
     } else {
-      iframe_cf_1st.style.opacity = "1";
-      iframe_cf_2nd.src = "https://datawrapper.dwcdn.net/Wbob5/66/";
+      chart_1.style.opacity = "1";
     }
     if (updateIteration > 0) {
       updateIteration--;
@@ -106,8 +121,8 @@ body {
   </script>
   <div id="datawrapper-container">
     <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP/13/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5/66/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="https://datawrapper.dwcdn.net/hw0d0/2/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
   </div>
 </div>
 </body>
