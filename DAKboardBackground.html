@@ -49,7 +49,7 @@ body {
     const img = new Image();
     const elem = document.getElementById("melbourne-image");
 
-    img.src = elem.src.split("?")[0] + "?t=" + new Date().getTime();
+    img.src = elem.src.split("?")[0] + "?v=" + new Date().getTime();
     img.onload = function() {
       elem.src = img.src;
     }
@@ -62,12 +62,11 @@ body {
     const id = "datawrapper-chart-blank";
     const elem = document.getElementById(id);
 
-    elem.src = chart.src;
+    elem.src = chart.src.split("?")[0] + "?v=" + new Date().getTime();
     elem.onload = function() {
       elem.id = chart.id;
       elem.title = chart.title;
       chart.id = id;
-      chart.src = "";
       chart.title = "";
     }
   }
