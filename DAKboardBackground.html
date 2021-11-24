@@ -59,7 +59,12 @@ body {
   }
 
   function updateDatawrapperChart(chart) {
-    chart.src = chart.src.split("?")[0] + "?v=" + new Date().getTime();
+    const img = new Image();
+
+    img.src = chart.src.split("/")[0] + "//stats.datawrapper.de/" + chart.src.split("/")[3] + "/datawrapper.gif?v=" + new Date().getTime();
+    img.onload = function() {
+      chart.src = chart.src.split("?")[0] + "?v=" + new Date().getTime();
+    }
   }
 
   function update() {
