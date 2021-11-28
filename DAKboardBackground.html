@@ -10,11 +10,16 @@
 body {
 }
 .image-container {
-  position: fixed;
+  position: relative;
   left: 0px;
   bottom: 0px;
   min-width: 100%;
   min-height: 100%;
+}
+.image-container img {
+  position: absolute;
+  opacity: 1;
+  transition: opacity 1s;
 }
 .widget-container {
   position: absolute;
@@ -29,14 +34,14 @@ body {
   bottom: 40px;
   min-width: 100%;
 }
-#datawrapper-container {
+.datawrapper-container {
   position: relative;
   right: 0px;
   bottom: 0px;
   min-width: 330px;
   min-height: 100%;
 }
-#datawrapper-container iframe {
+.datawrapper-container iframe {
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
@@ -45,9 +50,8 @@ body {
 <script>
   var updateIteration = 1618;
 
-  function updateMelbourneImage() {
+  function updateImage(elem) {
     const img = new Image();
-    const elem = document.getElementById("melbourne-image");
 
     img.src = elem.src.split("?")[0] + "?v=" + new Date().getTime();
     img.onload = function() {
@@ -55,31 +59,35 @@ body {
     }
   }
 
-  function updateDatawrapperChart(chart) {
+  function updateDatawrapperChart(elem) {
     const img = new Image();
-    const currentTime = new Date().getTime();
+    const currentDate = new Date();
 
-    img.src = chart.src.split("/")[0] + "//stats.datawrapper.de/" + chart.src.split("/")[3] + "/datawrapper.gif?v=" + currentTime;
-    img.onload = function() {
-      chart.src = chart.src.split("?")[0] + "?v=" + currentTime;
+    if (currentDate.getHours() > 4) {
+      img.src = elem.src.split("/")[0] + "//stats.datawrapper.de/" + elem.src.split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
+      img.onload = function() {
+        elem.src = elem.src.split("?")[0] + "?v=" + currentDate.getTime();
+      }
     }
   }
 
   function update() {
     var timeout = 20000;
-    const currentDate = new Date();
+    const imgMain = document.getElementById("melbourne-image-main");
+    const imgTop = document.getElementById("melbourne-image-top");
     const chart1 = document.getElementById("datawrapper-chart-mSXHP");
     const chart2 = document.getElementById("datawrapper-chart-Wbob5");
     const chart3 = document.getElementById("datawrapper-chart-hw0d0");
 
     if (updateIteration % 45 == 0) {
-      updateMelbourneImage();
+      updateImage(imgMain);
+      updateImage(imgTop);
     }
     if (chart1.style.opacity == "1") {
       timeout = timeout / 2;
       chart1.style.opacity = "0";
       chart2.style.opacity = "1";
-      if (((updateIteration % 18 % 17 % 16) == 0) && (currentDate.getHours() > 4)) {
+      if ((updateIteration % 18 % 17 % 16) == 0) {
         updateDatawrapperChart(chart3);
       }
     } else if (chart2.style.opacity == "1") {
@@ -92,8 +100,13 @@ body {
     } else if (chart3.style.opacity == "1") {
       chart3.style.opacity = "0";
       chart1.style.opacity = "1";
-      if (((updateIteration % 90 % 89 % 88) == 0) && (currentDate.getHours() > 4)) {
+      if ((updateIteration % 90 % 89 % 88) == 0) {
         updateDatawrapperChart(chart2);
+      }
+      if (imgTop.style.opacity == "1") {
+        imgTop.style.opacity = "0";
+      } else {
+        imgTop.style.opacity = "1";
       }
     } else {
       chart1.style.opacity = "1";
@@ -107,7 +120,8 @@ body {
 </head>
 <body onload="setTimeout(update, 3000);">
 <div class="image-container">
-  <img id="melbourne-image" src="https://rebrand.ly/8af634" onerror="setTimeout(updateMelbourneImage, 60000);">
+  <img id="melbourne-image-main" src="https://rebrand.ly/8af634">
+  <img id="melbourne-image-top" src="https://rbrndl.duckdns.org/e13f96" width="720px">
   <div class="image-widget-container">
   </div>
 </div>
