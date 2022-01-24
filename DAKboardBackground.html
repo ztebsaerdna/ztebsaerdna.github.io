@@ -53,7 +53,7 @@ body {
   function updateImage(elem) {
     const img = new Image();
 
-    img.src = elem.src.split("?")[0] + "?v=" + new Date().getTime();
+    img.src = elem.src.split("?")[0] + "?t=" + new Date().getTime();
     img.onload = function() {
       elem.src = img.src;
     }
@@ -74,8 +74,8 @@ body {
   function update() {
     var timeout = 20000;
     const currentDate = new Date();
-    const img1 = document.getElementById("melbourne-image-earthtv");
-    const img2 = document.getElementById("melbourne-image-deckchair");
+    const img1 = document.getElementById("melbourne-image-1");
+    const img2 = document.getElementById("melbourne-image-2");
     const chart1 = document.getElementById("datawrapper-chart-mSXHP");
     const chart2 = document.getElementById("datawrapper-chart-Wbob5");
     const chart3 = document.getElementById("datawrapper-chart-hw0d0");
@@ -125,8 +125,8 @@ body {
 </head>
 <body onload="setTimeout(update, 3000);">
 <div class="image-container">
-  <img id="melbourne-image-earthtv"   src="https://rebrand.ly/b3daa7" onload="this.style.opacity = '1';">
-  <img id="melbourne-image-deckchair" src="https://rebrand.ly/8af634" onload="this.style.opacity = '1';">
+  <img id="melbourne-image-1" src="https://rebrand.ly/b3daa7" onload="this.style.opacity = '1';">
+  <img id="melbourne-image-2" src="https://rebrand.ly/09207b" onload="this.style.opacity = '1';">
   <div class="image-widget-container">
   </div>
 </div>
