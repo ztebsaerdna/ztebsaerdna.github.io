@@ -1,3 +1,36 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,8 +82,17 @@ body {
 }
 </style>
 <script>
+  const maxImg = 3;
+  var imgIteration = 0;
   var updateIteration = 1620; /* 1618 */
-  var imgNo = 0;
+
+  function modulo(a, n) {
+    return ((a % n) + n) % n;
+  }
+
+  function getImage(imageNumber) {
+    return document.getElementById("melbourne-image-" + Math.abs(imageNumber).toString());
+  }
 
   function updateImage(elem) {
     const img = new Image();
@@ -72,28 +114,17 @@ body {
       }
     }
   }
-  
-  function modulo(a, n) {
-    return ((a % n) + n ) % n;
-  }
 
   function update() {
-    var timeout = 20000;
     const currentDate = new Date();
     const chart1 = document.getElementById("datawrapper-chart-mSXHP");
     const chart2 = document.getElementById("datawrapper-chart-Wbob5");
     const chart3 = document.getElementById("datawrapper-chart-hw0d0");
+    var timeout = 20000;
+    var img;
 
-    if (modulo(updateIteration, -45) > -3) {
-      updateImage(document.getElementById("melbourne-image-" + Math.abs(modulo(updateIteration, -45))));
-    }
-
-    if (updateIteration % 3 == 0) {
-      document.getElementById("melbourne-image-" + imgNo).style.opacity = "0";
-      imgNo = (imgNo + 1) % 3;
-      if (document.getElementById("melbourne-image-" + imgNo).naturalWidth > 0 ) {
-        document.getElementById("melbourne-image-" + imgNo).style.opacity = "0.9";
-      }
+    if (modulo(updateIteration, -45) > -maxImg) {
+      updateImage(getImage(modulo(updateIteration, -45));
     }
 
     if (chart1.style.opacity == "1") {
@@ -118,6 +149,7 @@ body {
           updateDatawrapperChart(chart2);
         }
       }
+      img = getImage(modulo(imgIteration, maxImg));
     } else {
       chart1.style.opacity = "1";
     }
