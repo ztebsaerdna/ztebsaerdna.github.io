@@ -85,7 +85,7 @@ body {
     const chart3 = document.getElementById("datawrapper-chart-hw0d0");
 
     if (modulo(updateIteration, -45) > -3) {
-      updateImage(document.getElementById("melbourne-image-" + modulo(updateIteration, -45)));
+      updateImage(document.getElementById("melbourne-image-" + Math.abs(modulo(updateIteration, -45))));
     }
 
     if (updateIteration % 3 == 0) {
