@@ -21,7 +21,6 @@ body {
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
-  margin: -32px 0px 0px -100px;
 }
 .widget-container {
   position: absolute;
@@ -55,7 +54,7 @@ body {
   function updateImage(elem) {
     const img = new Image();
 
-    img.src = elem.src.split("?")[0] + "?t=" + new Date().getTime();
+    img.src = elem.src.split("?")[0] + "?cache=" + new Date().getTime();
     img.onload = function() {
       elem.src = img.src;
     }
@@ -125,10 +124,11 @@ body {
   }
 </script>
 </head>
-<body onload="setTimeout(update, 300000);">
+<body onload="setTimeout(update, 60000);">
 <div class="image-container">
-  <img id="melbourne-image-1" src="https://rebrand.ly/b3daa7" onload="this.style.opacity = '1';">
-  <img id="melbourne-image-2" src="https://rebrand.ly/09207b" onload="this.style.opacity = '1';">
+  <img id="melbourne-image-0" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px;">
+  <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin: -19px 0px 0px -100px;">
+  <img id="melbourne-image-2" src="https://rebrand.ly/09207b" style="margin: -32px 0px 0px -100px;">
   <div class="image-widget-container">
   </div>
 </div>
