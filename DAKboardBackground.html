@@ -81,8 +81,8 @@ body {
     const chart2 = document.getElementById("datawrapper-chart-Wbob5");
     const chart3 = document.getElementById("datawrapper-chart-hw0d0");
 
-    if (updateIteration % -45 > -3) {
-      img = document.getElementById("melbourne-image-" + Math.abs(updateIteration % -45));
+    if (((updateIteration % -45) + -45 ) % -45 > -3) {
+      img = document.getElementById("melbourne-image-" + Math.abs(((updateIteration % -45) + -45 ) % -45));
       updateImage(img);
     }
 
