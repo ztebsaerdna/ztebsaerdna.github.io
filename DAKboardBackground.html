@@ -50,6 +50,7 @@ body {
 </style>
 <script>
   const maxImg = 3;
+  var imgIteration = 0;
   var updateIteration = 1620; /* 1618 */
 
   function modulo(a, n) {
@@ -115,7 +116,8 @@ body {
           updateDatawrapperChart(chart2);
         }
       }
-      img = getImage(modulo(Math.trunc(updateIteration / maxImg), maxImg));
+      imgIteration++;
+      img = getImage(modulo(imgIteration, maxImg));
       if (img.naturalWidth > 0 ) {
         for (let i = 0; i < maxImg; i++) {
           getImage(i).style.opacity = "0";
