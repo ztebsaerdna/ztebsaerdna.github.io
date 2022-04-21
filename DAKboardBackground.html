@@ -51,14 +51,14 @@ body {
 <script>
   const maxImg = 3;
   var imgIteration = 0;
-  var updateIteration = 1620; /* 1618 */
+  var updateIteration = 1621; /* 1618 */
 
   function modulo(a, n) {
     return ((a % n) + n) % n;
   }
 
-  function getImage(imageNumber) {
-    return document.getElementById("melbourne-image-" + Math.abs(imageNumber).toString());
+  function getImage(number) {
+    return document.getElementById("melbourne-image-" + Math.abs(number).toString());
   }
 
   function updateImage(elem) {
@@ -126,7 +126,6 @@ body {
       }
     } else {
       chart1.style.opacity = "1";
-      getImage(0).style.opacity = "0.9";
     }
 
     if (updateIteration > 0) {
@@ -136,7 +135,7 @@ body {
   }
 </script>
 </head>
-<body onload="setTimeout(update, 30000);">
+<body onload="getImage(0).style.opacity = "0.9"; setTimeout(update, 180000);">
 <div class="image-container">
   <img id="melbourne-image-0" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px;">
   <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin: -19px 0px 0px -100px;">
