@@ -1,36 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +50,6 @@ body {
 </style>
 <script>
   const maxImg = 3;
-  var imgIteration = 0;
   var updateIteration = 1620; /* 1618 */
 
   function modulo(a, n) {
@@ -149,10 +115,18 @@ body {
           updateDatawrapperChart(chart2);
         }
       }
-      img = getImage(modulo(imgIteration, maxImg));
+      img = getImage(modulo(Math.trunc(updateIteration / maxImg), maxImg));
+      if (img.naturalWidth > 0 ) {
+        for (let i = 0; i < maxImg; i++) {
+          getImage(i).style.opacity = "0";
+        }
+        img.style.opacity = "0.9";
+      }
     } else {
       chart1.style.opacity = "1";
+      getImage(0).style.opacity = "0.9";
     }
+
     if (updateIteration > 0) {
       updateIteration--;
       setTimeout(update, timeout);
@@ -160,7 +134,7 @@ body {
   }
 </script>
 </head>
-<body onload="setTimeout(update, 60000);">
+<body onload="setTimeout(update, 30000);">
 <div class="image-container">
   <img id="melbourne-image-0" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px;">
   <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin: -19px 0px 0px -100px;">
