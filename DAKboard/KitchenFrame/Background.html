@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>DAKboard Background: Melbourne Image and Weather</title>
+<style>
+body {
+}
+.image-container {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+.image-container img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.widget-container {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  min-width: 330px;
+  min-height: 100%;
+}
+.image-widget-container {
+  position: relative;
+  left: 0px;
+  bottom: 40px;
+  min-width: 100%;
+}
+.datawrapper-container {
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  min-width: 330px;
+  min-height: 100%;
+}
+.datawrapper-container iframe {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s;
+}
+</style>
+<script>
+  const maxImg = 3;
+  var imgIteration = 0;
+  var updateIteration = 1621; /* 1618 */
 
+  function modulo(a, n) {
+    return ((a % n) + n) % n;
+  }
+
+  function getImage(number) {
+    return document.getElementById("melbourne-image-" + Math.abs(number).toString());
+  }
+
+  function updateImage(elem) {
+    const img = new Image();
+
+    img.src = elem.src.split("?")[0] + "?cache=" + new Date().getTime();
+    img.onload = function() {
+      elem.src = img.src;
+    }
+  }
+
+  function updateDatawrapperChart(elem) {
+    const img = new Image();
+    const currentDate = new Date();
+
+    if (currentDate.getHours() > 5) {
+      img.src = elem.src.split("/")[0] + "//stats.datawrapper.de/" + elem.src.split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
+      img.onload = function() {
+        elem.src = elem.src.split("?")[0] + "?v=" + currentDate.getTime();
+      }
+    }
+  }
+
+  function update() {
+    const currentDate = new Date();
+    const chart1 = document.getElementById("datawrapper-chart-mSXHP");
+    const chart2 = document.getElementById("datawrapper-chart-Wbob5");
+    const chart3 = document.getElementById("datawrapper-chart-hw0d0");
+    var timeout = 20000;
+    var img;
+
+    if (modulo(updateIteration, -45) > -maxImg) {
+      updateImage(getImage(modulo(updateIteration, -45)));
+    }
+
+    if (chart1.style.opacity == "1") {
+      timeout = timeout / 2;
+      chart1.style.opacity = "0";
+      chart2.style.opacity = "1";
+      if (modulo(updateIteration, -18) > -3) {
+        updateDatawrapperChart(chart3);
+      }
+    } else if (chart2.style.opacity == "1") {
+      timeout = timeout / 2;
+      chart2.style.opacity = "0";
+      chart3.style.opacity = "1";
+      if (modulo(updateIteration, -90) > -3) {
+        updateDatawrapperChart(chart1);
+      }
+    } else if (chart3.style.opacity == "1") {
+      chart3.style.opacity = "0";
+      chart1.style.opacity = "1";
+      if (modulo(updateIteration, -90) > -3) {
+        if (currentDate.getHours() < 19) {
+          updateDatawrapperChart(chart2);
+        }
+      }
+      imgIteration++;
+      img = getImage(modulo(imgIteration, maxImg));
+      if (img.naturalWidth > 0 ) {
+        for (let i = 0; i < maxImg; i++) {
+          getImage(i).style.opacity = "0";
+        }
+        img.style.opacity = "0.9";
+      }
+    } else {
+      chart1.style.opacity = "1";
+    }
+
+    if (updateIteration > 0) {
+      updateIteration--;
+      setTimeout(update, timeout);
+    }
+  }
+</script>
+</head>
+<body onload="getImage(0).style.opacity = '0.9'; setTimeout(update, 180000);">
+<div class="image-container">
+  <img id="melbourne-image-0" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px;">
+  <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin: -19px 0px 0px -100px;">
+  <img id="melbourne-image-2" src="https://rebrand.ly/09207b" style="margin: -32px 0px 0px -100px;">
+  <div class="image-widget-container">
+  </div>
+</div>
+<div class="widget-container">
+  <a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="pure" data-basecolor="" data-accent="" >Melbourne VIC, Australia</a>
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+  </script>
+  <div class="datawrapper-container">
+    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP/16/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5/67/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="https://datawrapper.dwcdn.net/hw0d0/2/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+  </div>
+</div>
+</body>
+</html>
