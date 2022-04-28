@@ -93,7 +93,7 @@ body {
   function PlayerjsEvents(event, id, data) {
     switch (event) {
       case "fragment":
-        setTimeout(function() {getImage(0).src = player.api('screenshot'); player.api('stop'); player.api('destroy');}, 100);
+        setTimeout(function() {getImage(0).src = player.api('screenshot'); player.api('stop'); player.api('destroy');}, 3000);
         break;
       }
   }
