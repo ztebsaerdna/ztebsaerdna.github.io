@@ -48,13 +48,29 @@ body {
   transition: opacity 1s;
 }
 </style>
+<script src="/js/playerjs.js"></script>
 <script>
-  const maxImg = 3;
-  var imgIteration = 0;
-  var updateIteration = 1621; /* 1618 */
+  var idxChart = 0;
+  var idxImg = 0;
+  var numChart = 0;
+  var numImg = 0;
+  var player = null;
+  var updateIteration = 0;
 
-  function modulo(a, n) {
-    return ((a % n) + n) % n;
+  function getChart(number) {
+    return document.getElementById("datawrapper-chart-" + Math.abs(number).toString());
+  }
+
+  function updateChart(elem) {
+    const img = new Image();
+    const currentDate = new Date();
+
+    if (currentDate.getHours() > 5) {
+      img.src = elem.src.split("/")[0] + "//stats.datawrapper.de/" + elem.src.split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
+      img.onload = function() {
+        elem.src = elem.src.split("?")[0] + "?v=" + currentDate.getTime();
+      }
+    }
   }
 
   function getImage(number) {
@@ -70,62 +86,95 @@ body {
     }
   }
 
-  function updateDatawrapperChart(elem) {
-    const img = new Image();
-    const currentDate = new Date();
+  function modulo(a, n) {
+    return ((a % n) + n) % n;
+  }
 
-    if (currentDate.getHours() > 5) {
-      img.src = elem.src.split("/")[0] + "//stats.datawrapper.de/" + elem.src.split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
-      img.onload = function() {
-        elem.src = elem.src.split("?")[0] + "?v=" + currentDate.getTime();
+  function PlayerjsEvents(event, id, data) {
+    switch (event) {
+      case "fragment":
+        setTimeout(function() {getImage(0).src = player.api('screenshot'); player.api('stop'); player.api('destroy');}, 100);
+        break;
       }
+  }
+
+  function initialization() {
+    numChart = idxChart = 0;
+    while(getChart(numChart)) {
+      if (getChart(numChart).style.opacity != "") {
+        idxChart = numChart;
+      }
+      numChart++;
     }
+
+    numImg = idxImg = 0;
+    while(getImage(numImg)) {
+      if (getImage(numImg).style.opacity != "") {
+        idxImg = numImg;
+      }
+      numImg++;
+    }
+
+    updateIteration = Math.floor(6 * 3600 / (20 + 10 + 10) * numChart);
+
+    setTimeout(update, 180);
   }
 
   function update() {
     const currentDate = new Date();
-    const chart1 = document.getElementById("datawrapper-chart-mSXHP");
-    const chart2 = document.getElementById("datawrapper-chart-Wbob5");
-    const chart3 = document.getElementById("datawrapper-chart-hw0d0");
+    var elemIdx = null;
+    var elemNxt = null;
+    var idxElem = 0;
     var timeout = 20000;
-    var img;
 
-    if (modulo(updateIteration, -45) > -maxImg) {
-      updateImage(getImage(modulo(updateIteration, -45)));
+    elemIdx = getChart(idxChart);
+    idxChart = modulo(idxChart + 1, numChart);
+    getChart(idxChart).style.opacity = elemIdx.style.opacity;
+    elemIdx.style.opacity = "0";
+    switch(idxChart) {
+      case 0:
+        if (modulo(updateIteration, -90) > -numChart) {
+          if (currentDate.getHours() < 19) {
+            updateChart(getChart(modulo(idxChart + 1, numChart)));
+          }
+        }
+
+        elemIdx = getImage(idxImg);
+        for (let i = 1; i < numImg; i++) {
+          idxElem = modulo(idxImg + i, numImg);
+          elemNxt = getImage(idxElem);
+          if (elemNxt) {
+            if (elemNxt.naturalWidth > 0) {
+              idxImg = idxElem;
+              elemNxt.style.opacity = elemIdx.style.opacity;
+              elemIdx.style.opacity = "0";
+              break;
+            }
+          }
+        }
+
+        break;
+      case 1:
+        timeout /= 2;
+        if (modulo(updateIteration, -18) > -numChart) {
+          updateChart(getChart(modulo(idxChart + 1, numChart)));
+        }
+        break;
+      case 2:
+        timeout /= 2;
+        if (modulo(updateIteration, -90) > -numChart) {
+          updateChart(getChart(modulo(idxChart + 1, numChart)));
+        }
+        break;
     }
 
-    if (chart1.style.opacity == "1") {
-      timeout = timeout / 2;
-      chart1.style.opacity = "0";
-      chart2.style.opacity = "1";
-      if (modulo(updateIteration, -18) > -3) {
-        updateDatawrapperChart(chart3);
+    idxElem = modulo(updateIteration, -45);
+    if (idxElem > -numImg) {
+      if (idxElem == 0) {
+        player = new Playerjs ({id:"player",file:"https://dacastmmd.mmdlive.lldns.net/dacastmmd/946cf3626cf64968adb0fab450ef3806/chunklist_b4628000.m3u8?cache=" + new Date().getTime(),autoplay:1});
+      } else {
+        updateImage(getImage(idxElem));
       }
-    } else if (chart2.style.opacity == "1") {
-      timeout = timeout / 2;
-      chart2.style.opacity = "0";
-      chart3.style.opacity = "1";
-      if (modulo(updateIteration, -90) > -3) {
-        updateDatawrapperChart(chart1);
-      }
-    } else if (chart3.style.opacity == "1") {
-      chart3.style.opacity = "0";
-      chart1.style.opacity = "1";
-      if (modulo(updateIteration, -90) > -3) {
-        if (currentDate.getHours() < 19) {
-          updateDatawrapperChart(chart2);
-        }
-      }
-      imgIteration++;
-      img = getImage(modulo(imgIteration, maxImg));
-      if (img.naturalWidth > 0 ) {
-        for (let i = 0; i < maxImg; i++) {
-          getImage(i).style.opacity = "0";
-        }
-        img.style.opacity = "0.9";
-      }
-    } else {
-      chart1.style.opacity = "1";
     }
 
     if (updateIteration > 0) {
@@ -135,11 +184,14 @@ body {
   }
 </script>
 </head>
-<body onload="getImage(0).style.opacity = '0.9'; setTimeout(update, 180000);">
+<body onload="initialization();">
 <div class="image-container">
-  <img id="melbourne-image-0" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px;">
+  <img id="melbourne-image-0" src="" style="width: 1280px">
   <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin: -19px 0px 0px -100px;">
-  <img id="melbourne-image-2" src="https://rebrand.ly/09207b" style="margin: -32px 0px 0px -100px;">
+  <img id="melbourne-image-2" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px; opacity: 0.8">
+  <img id="melbourne-image-3" src="https://rebrand.ly/09207b" style="margin: -32px 0px 0px -100px;">
+  <div id="player" class="player" style="width: 1280px; opacity: 0">
+  </div>
   <div class="image-widget-container">
   </div>
 </div>
@@ -149,9 +201,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div class="datawrapper-container">
-    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-mSXHP" src="https://datawrapper.dwcdn.net/mSXHP/16/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-Wbob5" src="https://datawrapper.dwcdn.net/Wbob5/67/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-hw0d0" src="https://datawrapper.dwcdn.net/hw0d0/2/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-0" src="https://datawrapper.dwcdn.net/mSXHP/16/" scrolling="no" frameborder="0" style="border: none; opacity: 1" width="330" height="220"></iframe>
+    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-1" src="https://datawrapper.dwcdn.net/Wbob5/67/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-2" src="https://datawrapper.dwcdn.net/hw0d0/2/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
   </div>
 </div>
 </body>
