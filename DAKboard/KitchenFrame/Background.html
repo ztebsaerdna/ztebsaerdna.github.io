@@ -124,20 +124,22 @@ body {
     var elemIdx = null;
     var elemNxt = null;
     var idxElem = 0;
-    var timeout = 20000;
+    var timeout = 10000;
 
+/*  Loop, update charts */
     elemIdx = getChart(idxChart);
     idxChart = modulo(idxChart + 1, numChart);
     getChart(idxChart).style.opacity = elemIdx.style.opacity;
     elemIdx.style.opacity = "0";
     switch(idxChart) {
       case 0:
+        timeout += 10000;
         if (modulo(updateIteration, -90) > -numChart) {
           if (currentDate.getHours() < 19) {
             updateChart(getChart(modulo(idxChart + 1, numChart)));
           }
         }
-
+/*      Loop images */
         elemIdx = getImage(idxImg);
         for (let i = 1; i < numImg; i++) {
           idxElem = modulo(idxImg + i, numImg);
@@ -154,19 +156,17 @@ body {
 
         break;
       case 1:
-        timeout /= 2;
-        if (modulo(updateIteration, -18) > -numChart) {
+        if (modulo(updateIteration, -15) > -numChart) {
           updateChart(getChart(modulo(idxChart + 1, numChart)));
         }
         break;
       case 2:
-        timeout /= 2;
-        if (modulo(updateIteration, -90) > -numChart) {
+        if (modulo(updateIteration, -81) > -numChart) {
           updateChart(getChart(modulo(idxChart + 1, numChart)));
         }
         break;
     }
-
+/*  Update images */
     idxElem = modulo(updateIteration, -45);
     if (idxElem > -numImg) {
       if (idxElem == 0) {
