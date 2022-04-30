@@ -166,11 +166,12 @@ body {
         }
         break;
     }
+
 /*  Update images */
     idxElem = modulo(updateIteration, -45);
     if (idxElem > -numImg) {
       if (idxElem == 0) {
-        player = new Playerjs ({id:"player",file:"https://dacastmmd.mmdlive.lldns.net/dacastmmd/946cf3626cf64968adb0fab450ef3806/chunklist_b4628000.m3u8?cache=" + new Date().getTime(),autoplay:1});
+        player = new Playerjs({id:"player-0",file:"https://dacastmmd.mmdlive.lldns.net/dacastmmd/946cf3626cf64968adb0fab450ef3806/chunklist_b4628000.m3u8?cache=" + currentDate.getTime(),autoplay:1});
       } else {
         updateImage(getImage(idxElem));
       }
@@ -185,12 +186,11 @@ body {
 </head>
 <body onload="initialization();">
 <div class="image-container">
-  <img id="melbourne-image-0" src="" style="width: 1080px">
+  <img id="melbourne-image-0" src="" style="margin: 0px 0px 0px 0px; width: 1280px">
   <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin: -19px 0px 0px -100px;">
-  <img id="melbourne-image-2" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px; opacity: 0.8">
+  <img id="melbourne-image-2" src="https://rebrand.ly/b3daa7" style="margin:   0px 0px 0px -200px; opacity: 0.9">
   <img id="melbourne-image-3" src="https://rebrand.ly/09207b" style="margin: -32px 0px 0px -100px;">
-  <div id="player" class="player" style="width: 1080px; opacity: 0">
-  </div>
+  <div id="player" class="player-0" style="opacity: 0"></div>
   <div class="image-widget-container">
   </div>
 </div>
