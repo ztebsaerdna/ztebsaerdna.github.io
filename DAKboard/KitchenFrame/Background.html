@@ -92,11 +92,12 @@ body {
 
   function PlayerjsEvents(event, id, data) {
     if (event == "buffered") {
-      setTimeout(function(){getImage(0).src = player.api("screenshot");player.api("stop");player.api("destroy");}, 1000);
+      setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot");player.api("stop");player.api("destroy");}, 1000);
     }
   }
 
   function initialization() {
+/*  Number of charts, visible chart */
     numChart = idxChart = 0;
     while(getChart(numChart)) {
       if (getChart(numChart).style.opacity != "") {
@@ -104,7 +105,7 @@ body {
       }
       numChart++;
     }
-
+/*  Number of images, visible image */
     numImg = idxImg = 0;
     while(getImage(numImg)) {
       if (getImage(numImg).style.opacity != "") {
@@ -112,10 +113,10 @@ body {
       }
       numImg++;
     }
+/*  Number of updates totaling 12 hours runtime */
+    updateIteration = Math.floor(12 * 3600 / (3 * 10 + 10) * numChart);
 
-    updateIteration = Math.floor(6 * 3600 / (20 + 10 + 10) * numChart);
-
-    setTimeout(update, 180000);
+    setTimeout(update, 60000);
   }
 
   function update() {
