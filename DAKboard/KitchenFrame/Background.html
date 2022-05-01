@@ -134,7 +134,7 @@ body {
     switch(idxChart) {
       case 0:
         timeout += 10000;
-        if (modulo(updateIteration, -90) > -numChart) {
+        if (modulo(updateIteration, -72) > -numChart) {
           if (currentDate.getHours() < 19) {
             updateChart(getChart(modulo(idxChart + 1, numChart)));
           }
@@ -161,14 +161,14 @@ body {
         }
         break;
       case 2:
-        if (modulo(updateIteration, -81) > -numChart) {
+        if (modulo(updateIteration, -60) > -numChart) {
           updateChart(getChart(modulo(idxChart + 1, numChart)));
         }
         break;
     }
 
 /*  Update images */
-    idxElem = modulo(updateIteration, -45);
+    idxElem = modulo(updateIteration, -54);
     if (idxElem > -numImg) {
       if (idxElem == 0) {
         player = new Playerjs({id:"player-0",file:"https://dacastmmd.mmdlive.lldns.net/dacastmmd/946cf3626cf64968adb0fab450ef3806/chunklist_b4628000.m3u8?cache=" + currentDate.getTime(),autoplay:1});
