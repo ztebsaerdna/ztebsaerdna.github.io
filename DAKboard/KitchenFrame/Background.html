@@ -91,7 +91,7 @@ body {
   }
 
   function PlayerjsEvents(event, id, data) {
-    if (event == "buffered") {
+    if (event == "fragment") {
       setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot");player.api("stop");player.api("destroy");}, 5000);
     }
   }
