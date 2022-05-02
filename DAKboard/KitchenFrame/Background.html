@@ -92,7 +92,7 @@ body {
 
   function PlayerjsEvents(event, id, data) {
     if (event == "buffered") {
-      setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot");player.api("stop");player.api("destroy");}, 1000);
+      setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot");player.api("stop");player.api("destroy");}, 5000);
     }
   }
 
