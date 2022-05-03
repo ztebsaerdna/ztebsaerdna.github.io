@@ -101,7 +101,7 @@ body {
       case "fragment":
         clearTimeout(timeoutPlayerStop);
         if (!timeoutPlayerFragment) {
-          timeoutPlayerScreenshot = setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}, 3000);
+          timeoutPlayerFragment = setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}, 3000);
         }
         break;
     }
