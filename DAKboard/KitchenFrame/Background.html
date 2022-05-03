@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta http-equiv="pragma" content="no-cache">
-<title>DAKboard Background: Melbourne Image and Weather</title>
+<title>DAKboard Background: Melbourne Images and Weather</title>
 <style>
 body {
 }
@@ -55,6 +55,7 @@ body {
   var numChart = 0;
   var numImg = 0;
   var player = null;
+  var timeoutPlayerScreenshot = null;
   var timeoutPlayerStop = null;
   var updateIteration = 0;
 
@@ -94,12 +95,14 @@ body {
   function PlayerjsEvents(event, id, data) {
     switch(event) {
       case "play":
-        timeoutPlayerStop = setTimeout(function(){player.api("stop");}, 10000);
+        timeoutPlayerScreenshot = null;
+        timeoutPlayerStop = setTimeout(function(){player.api("stop");}, 13000);
         break;
       case "fragment":
         clearTimeout(timeoutPlayerStop);
-        getImage(id.split("-")[1]).src = player.api("screenshot");
-        player.api("stop");
+        if (!timeoutPlayerScreenshot) {
+          timeoutPlayerScreenshot = setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}, 3000);
+        }
         break;
     }
   }
