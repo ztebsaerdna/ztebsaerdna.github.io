@@ -96,12 +96,12 @@ body {
     switch(event) {
       case "play":
         timeoutPlayerScreenshot = null;
-        timeoutPlayerStop = setTimeout(function(){player.api("stop");}, 13000);
+        timeoutPlayerStop = setTimeout(function(){player.api("stop");}, 10000);
         break;
       case "fragment":
         clearTimeout(timeoutPlayerStop);
         if (!timeoutPlayerScreenshot) {
-          timeoutPlayerScreenshot = setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}, 3000);
+          timeoutPlayerScreenshot = setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}, 1000);
         }
         break;
     }
