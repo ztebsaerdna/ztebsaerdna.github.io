@@ -55,6 +55,7 @@ body {
   var numChart = 0;
   var numImg = 0;
   var player = null;
+  var timeoutPlayerStop = null;
   var updateIteration = 0;
 
   function getChart(number) {
@@ -91,8 +92,15 @@ body {
   }
 
   function PlayerjsEvents(event, id, data) {
-    if (event == "fragment") {
-      setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot");player.api("stop");player.api("destroy");}, 5000);
+    switch(event) {
+      case "play":
+        timeoutPlayerStop = setTimeout(function(){player.api("stop");}, 10000);
+        break;
+      case "fragment":
+        clearTimeout(timeoutPlayerStop);
+        getImage(id.split("-")[1]).src = player.api("screenshot");
+        player.api("stop");
+        break;
     }
   }
 
@@ -171,7 +179,10 @@ body {
     idxElem = modulo(updateIteration, -54);
     if (idxElem > -numImg) {
       if (idxElem == 0) {
-        player = new Playerjs({id:"player-0",file:"https://dacastmmd.mmdlive.lldns.net/dacastmmd/946cf3626cf64968adb0fab450ef3806/chunklist_b4628000.m3u8?cache=" + currentDate.getTime(),autoplay:1});
+        if (!player) {
+          player = new Playerjs({id:"player-0",file:"https://dacastmmd.mmdlive.lldns.net/dacastmmd/946cf3626cf64968adb0fab450ef3806/chunklist_b4628000.m3u8"});
+        }
+        player.api("play");
       } else {
         updateImage(getImage(idxElem));
       }
