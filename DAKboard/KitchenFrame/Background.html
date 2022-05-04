@@ -55,7 +55,6 @@ body {
   var numChart = 0;
   var numImg = 0;
   var player = null;
-  var timeoutPlayerFragment = null;
   var timeoutPlayerStop = null;
   var updateIteration = 0;
 
@@ -95,14 +94,11 @@ body {
   function PlayerjsEvents(event, id, data) {
     switch(event) {
       case "play":
-        timeoutPlayerFragment = null;
         timeoutPlayerStop = setTimeout(function(){player.api("stop");}, 10000);
         break;
       case "fragment":
         clearTimeout(timeoutPlayerStop);
-        if (!timeoutPlayerFragment) {
-          timeoutPlayerFragment = setTimeout(function(){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}, 3000);
-        }
+        setTimeout(function(){if (player.api("playing")){getImage(id.split("-")[1]).src = player.api("screenshot"); player.api("stop");}}, 3000);
         break;
     }
   }
