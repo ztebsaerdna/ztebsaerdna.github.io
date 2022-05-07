@@ -50,6 +50,8 @@ body {
 </style>
 <script src="js/playerjs.js"></script>
 <script>
+  const srcChart = ["https://datawrapper.dwcdn.net/mSXHP/16/", "https://datawrapper.dwcdn.net/Wbob5/67/", "https://datawrapper.dwcdn.net/hw0d0/2/"];
+  const srcImg = ["", "https://rebrand.ly/ffea18", "https://rebrand.ly/b3daa7", "https://rebrand.ly/64b14c", "https://rebrand.ly/09207b"];
   var idxChart = 0;
   var idxImg = 0;
   var numChart = 0;
@@ -62,14 +64,14 @@ body {
     return document.getElementById("datawrapper-chart-" + Math.abs(number).toString());
   }
 
-  function updateChart(elem) {
+  function updateChart(number) {
     const img = new Image();
     const currentDate = new Date();
 
     if (currentDate.getHours() > 5) {
-      img.src = elem.src.split("/")[0] + "//stats.datawrapper.de/" + elem.src.split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
+      img.src = srcChart[number].split("/")[0] + "//stats.datawrapper.de/" + srcChart[number].split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
       img.onload = function() {
-        elem.src = elem.src.split("?")[0] + "?v=" + currentDate.getTime();
+        getChart(number).src = srcChart[number].split("?")[0] + "?v=" + currentDate.getTime();
       }
     }
   }
@@ -78,12 +80,12 @@ body {
     return document.getElementById("melbourne-image-" + Math.abs(number).toString());
   }
 
-  function updateImage(elem) {
+  function updateImage(number) {
     const img = new Image();
 
-    img.src = elem.src.split("?")[0] + "?cache=" + new Date().getTime();
+    img.src = srcImg[number].split("?")[0] + "?cache=" + new Date().getTime();
     img.onload = function() {
-      elem.src = img.src;
+      getImage(number).src = img.src;
     }
   }
 
@@ -112,6 +114,7 @@ body {
       }
       numChart++;
     }
+    updateChart(idxChart);
 /*  Number of images, visible image */
     numImg = idxImg = 0;
     while(getImage(numImg)) {
@@ -120,6 +123,7 @@ body {
       }
       numImg++;
     }
+    updateImage(idxImg);
 /*  Number of updates totaling 12 hours runtime */
     updateIteration = Math.floor(12 * 3600 / (3 * 10 + 10) * numChart);
 
@@ -143,7 +147,7 @@ body {
         timeout += 10000;
         if (modulo(updateIteration, -72) > -numChart) {
           if (currentDate.getHours() < 19) {
-            updateChart(getChart(modulo(idxChart + 1, numChart)));
+            updateChart(modulo(idxChart + 1, numChart));
           }
         }
 /*      Loop images */
@@ -164,12 +168,12 @@ body {
         break;
       case 1:
         if (modulo(updateIteration, -15) > -numChart) {
-          updateChart(getChart(modulo(idxChart + 1, numChart)));
+          updateChart(modulo(idxChart + 1, numChart));
         }
         break;
       case 2:
         if (modulo(updateIteration, -60) > -numChart) {
-          updateChart(getChart(modulo(idxChart + 1, numChart)));
+          updateChart(modulo(idxChart + 1, numChart));
         }
         break;
     }
@@ -183,7 +187,7 @@ body {
         }
         player.api("play");
       } else {
-        updateImage(getImage(idxElem));
+        updateImage(idxElem);
       }
     }
 
@@ -196,11 +200,11 @@ body {
 </head>
 <body onload="initialization();">
 <div class="image-container">
-  <img id="melbourne-image-0" src="" style="margin: 0px 0px 0px -65px; width: 1280px;">
-  <img id="melbourne-image-1" src="https://rebrand.ly/ffea18" style="margin:  -19px 0px 0px -100px;">
-  <img id="melbourne-image-2" src="https://rebrand.ly/b3daa7" style="margin:    0px 0px 0px -200px; opacity: 0.9;">
-  <img id="melbourne-image-3" src="https://rebrand.ly/64b14c" style="margin: -360px 0px 0px -420px;">
-  <img id="melbourne-image-4" src="https://rebrand.ly/09207b" style="margin:  -32px 0px 0px -100px;">
+  <img id="melbourne-image-0" src="" style="margin:    0px 0px 0px -65px; width: 1280px;">
+  <img id="melbourne-image-1" src="" style="margin:  -19px 0px 0px -100px;">
+  <img id="melbourne-image-2" src="" style="margin:    0px 0px 0px -200px; opacity: 0.9;">
+  <img id="melbourne-image-3" src="" style="margin: -360px 0px 0px -420px;">
+  <img id="melbourne-image-4" src="" style="margin:  -32px 0px 0px -100px;">
   <div id="player-0" class="player" style="width: 1280px; opacity: 0;"></div>
   <div class="image-widget-container">
   </div>
@@ -211,9 +215,9 @@ body {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
   <div class="datawrapper-container">
-    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-0" src="https://datawrapper.dwcdn.net/mSXHP/16/" scrolling="no" frameborder="0" style="border: none; opacity: 1" width="330" height="220"></iframe>
-    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-1" src="https://datawrapper.dwcdn.net/Wbob5/67/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
-    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-2" src="https://datawrapper.dwcdn.net/hw0d0/2/" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Hourly Weather Forecast" aria-label="Interactive line chart" id="datawrapper-chart-0" src="" scrolling="no" frameborder="0" style="border: none; opacity: 1" width="330" height="220"></iframe>
+    <iframe title="Realtime UVR Level" aria-label="Interactive line chart" id="datawrapper-chart-1" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
+    <iframe title="Stop D18" aria-label="Interactive line chart" id="datawrapper-chart-2" src="" scrolling="no" frameborder="0" style="border: none;" width="330" height="220"></iframe>
   </div>
 </div>
 </body>
