@@ -115,6 +115,7 @@ body {
       numChart++;
     }
     updateChart(idxChart);
+    updateChart(modulo(idxChart + 1, numChart));
 /*  Number of images, visible image */
     numImg = idxImg = 0;
     while(getImage(numImg)) {
@@ -200,7 +201,7 @@ body {
 </head>
 <body onload="initialization();">
 <div class="image-container">
-  <img id="melbourne-image-0" src="" style="margin:    0px 0px 0px -65px; width: 1280px;">
+  <img id="melbourne-image-0" src="" style="margin:    0px 0px 0px  -65px; width: 1280px;">
   <img id="melbourne-image-1" src="" style="margin:  -19px 0px 0px -100px;">
   <img id="melbourne-image-2" src="" style="margin:    0px 0px 0px -200px; opacity: 0.9;">
   <img id="melbourne-image-3" src="" style="margin: -360px 0px 0px -420px;">
