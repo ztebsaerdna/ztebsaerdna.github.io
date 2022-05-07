@@ -83,7 +83,7 @@ body {
   function updateImage(number) {
     const img = new Image();
 
-    img.src = srcImg[number].split("?")[0] + "?cache=" + new Date().getTime();
+    img.src = srcImg[Math.abs(number)].split("?")[0] + "?cache=" + new Date().getTime();
     img.onload = function() {
       getImage(number).src = img.src;
     }
