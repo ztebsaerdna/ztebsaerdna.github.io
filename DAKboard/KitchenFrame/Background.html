@@ -115,7 +115,7 @@ body {
       numChart++;
     }
     updateChart(idxChart);
-    updateChart(modulo(idxChart + 1, numChart));
+    setTimeout(function(){updateChart(modulo(idxChart + 1, numChart))}, 60000);
 /*  Number of images, visible image */
     numImg = idxImg = 0;
     while(getImage(numImg)) {
@@ -124,11 +124,11 @@ body {
       }
       numImg++;
     }
-    updateImage(idxImg);
+    setTimeout(function(){updateImage(idxImg)}, 30000);
 /*  Number of updates totaling 12 hours runtime */
     updateIteration = Math.floor(12 * 3600 / (3 * 10 + 10) * numChart);
 
-    setTimeout(update, 60000);
+    setTimeout(update, 90000);
   }
 
   function update() {
@@ -199,7 +199,7 @@ body {
   }
 </script>
 </head>
-<body onload="setTimeout(initialization, 20000);">
+<body onload="setTimeout(initialization, 30000);">
 <div class="image-container">
   <img id="melbourne-image-0" src="" style="margin:    0px 0px 0px  -65px; width: 1280px;">
   <img id="melbourne-image-1" src="" style="margin:  -32px 0px 0px -100px;">
