@@ -50,8 +50,6 @@ body {
 </style>
 <script src="js/playerjs.js"></script>
 <script>
-  const srcChart = ["https://datawrapper.dwcdn.net/mSXHP/16/", "https://datawrapper.dwcdn.net/Wbob5/67/", "https://datawrapper.dwcdn.net/hw0d0/2/"];
-  const srcImg = ["", "https://rebrand.ly/09207b", "https://rebrand.ly/64b14c", "https://rebrand.ly/b3daa7"];
   var idxChart = 0;
   var idxImg = 0;
   var numChart = 0;
@@ -65,13 +63,14 @@ body {
   }
 
   function updateChart(number) {
+    const src = ["https://datawrapper.dwcdn.net/mSXHP/16/", "https://datawrapper.dwcdn.net/Wbob5/67/", "https://datawrapper.dwcdn.net/hw0d0/2/"];
     const img = new Image();
     const currentDate = new Date();
 
-    if (currentDate.getHours() > 5) {
-      img.src = srcChart[number].split("/")[0] + "//stats.datawrapper.de/" + srcChart[number].split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
+    if (currentDate.getHours() > 4) {
+      img.src = src[number].split("/")[0] + "//stats.datawrapper.de/" + src[number].split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
       img.onload = function() {
-        getChart(number).src = srcChart[number].split("?")[0] + "?v=" + currentDate.getTime();
+        getChart(number).src = src[number].split("?")[0] + "?v=" + currentDate.getTime();
       }
     }
   }
@@ -81,9 +80,10 @@ body {
   }
 
   function updateImage(number) {
+    const src = ["", "https://rebrand.ly/09207b", "https://rebrand.ly/64b14c", "https://rebrand.ly/b3daa7"];
     const img = new Image();
 
-    img.src = srcImg[Math.abs(number)].split("?")[0] + "?cache=" + new Date().getTime();
+    img.src = src[Math.abs(number)].split("?")[0] + "?cache=" + new Date().getTime();
     img.onload = function() {
       getImage(number).src = img.src;
     }
