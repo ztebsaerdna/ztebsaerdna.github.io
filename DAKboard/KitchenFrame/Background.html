@@ -157,7 +157,7 @@ body {
           idxElem = modulo(idxImg + i, numImg);
           elemNxt = getImage(idxElem);
           if (elemNxt) {
-            if (elemNxt.naturalWidth > 0) {
+            if (elemNxt.naturalWidth > 800) {
               idxImg = idxElem;
               elemNxt.style.opacity = elemIdx.style.opacity;
               elemIdx.style.opacity = "0";
