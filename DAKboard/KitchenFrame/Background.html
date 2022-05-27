@@ -146,7 +146,7 @@ body {
     switch(idxChart) {
       case 0:
         timeout += 10000;
-        if (modulo(updateIteration, -72) > -numChart) {
+        if (modulo(updateIteration, -81) > -numChart) {
           if (currentDate.getHours() < 19) {
             updateChart(modulo(idxChart + 1, numChart));
           }
@@ -168,19 +168,19 @@ body {
 
         break;
       case 1:
-        if (modulo(updateIteration, -15) > -numChart) {
+        if (modulo(updateIteration, -18) > -numChart) {
           updateChart(modulo(idxChart + 1, numChart));
         }
         break;
       case 2:
-        if (modulo(updateIteration, -60) > -numChart) {
+        if (modulo(updateIteration, -54) > -numChart) {
           updateChart(modulo(idxChart + 1, numChart));
         }
         break;
     }
 
 /*  Update images */
-    idxElem = modulo(updateIteration, -81);
+    idxElem = modulo(updateIteration, -72);
     if (idxElem > -numImg) {
       if (idxElem == 0) {
         if (!player) {
