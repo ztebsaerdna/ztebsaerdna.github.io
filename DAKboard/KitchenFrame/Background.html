@@ -83,11 +83,19 @@ body {
   }
 
   function updateImage(number) {
-    const src = ["", "https://rebrand.ly/09207b", "https://rebrand.ly/ffea18", "https://rebrand.ly/64b14c", "https://rebrand.ly/71808e"];
+    const src = ["",
+                 "https://view.myairportcams.com/MELBCBD/showimagecamera1.php",
+                 "https://livecdn-us-earthtv-com.global.ssl.fastly.net/preview/streams/earthtv/HW9nw4oABPI.jpg?token=EAIY6wE4mf3gOkgC.CgdlYXJ0aHR2EgtIVzludzNZQUJQRSIHZWFydGh0dg.g6Yhump3UpMFFG877uNvk0dnKmZrU82giZdb9aQBSLAGtyMrTQruYu1n-T7BKJbMcKBtJ12IOdA1NrIYmvLYeg",
+                 "https://webcam.summitinternet.com.au/BRUK.jpg",
+                 "https://i1.ytimg.com/vi/l_8DrACHpwY/maxresdefault_live.jpg"];
     const img = new Image();
 
     number = Math.abs(number);
-    img.src = src[number].split("?")[0] + "?cache=" + new Date().getTime();
+    if (src[number].includes("?")) {
+      img.src = src[number] + "&cache=" + new Date().getTime();
+    } else {
+      img.src = src[number] + "?cache=" + new Date().getTime();
+    }
     img.onload = function() {
       getImage(number).src = img.src;
     }
