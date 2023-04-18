@@ -70,10 +70,7 @@ body {
 
     number = Math.abs(number);
     if (currentDate.getHours() > 3) {
-      img.src = src[number].split("/")[0] + "//stats.datawrapper.de/" + src[number].split("/")[3] + "/datawrapper.gif?v=" + currentDate.getTime();
-      img.onload = function() {
-        getChart(number).src = src[number] + "?v=" + currentDate.getTime();
-      }
+      getChart(number).src = src[number] + "?v=" + currentDate.getTime();
     }
   }
 
