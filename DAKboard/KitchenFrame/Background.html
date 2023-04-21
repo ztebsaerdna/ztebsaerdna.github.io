@@ -68,7 +68,7 @@ body {
     const currentDate = new Date();
 
     number = Math.abs(number);
-    getChart(number).contentWindow.location.reload();
+    getChart(number).contentDocument.location.reload(true);
   }
 
   function getImage(number) {
