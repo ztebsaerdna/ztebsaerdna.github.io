@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="robots" content="noindex"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>MyPage: Burnley Tunnel Web Cam</title>
+<script>
+  function updateImage() {
+    const currentDate = new Date();
+    const img = new Image();
+
+    img.src = "https://cmlwebcam.transurban.com/wimages/webcam03.jpg?v=" + currentDate.getTime();
+    setTimeout(updateImage, 3000);
+    img.onload = function() {
+      document.getElementById("img").src = img.src;
+    }
+  }
+</script>
+</head>
+<body onload="updateImage();">
+  <img id="img" src="" style="width: 1920px;">
+</body>
+</html>
