@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="robots" content="noindex"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+<title>MyPage: Dom zu Fulda Web Cam</title>
+<script>
+  function updateImage() {
+    const currentDate = new Date();
+    const img = new Image();
+
+    img.src = "https://www.fulda.de/fileadmin/webcam/dom/bild.jpg?v=" + currentDate.getTime();
+    setTimeout(updateImage, 30000);
+    img.onload = function() {
+      document.getElementById("img").src = img.src;
+    }
+  }
+</script>
+</head>
+<body onload="updateImage();">
+  <img id="img" src="" style="width: 100%;">
+</body>
+</html>
