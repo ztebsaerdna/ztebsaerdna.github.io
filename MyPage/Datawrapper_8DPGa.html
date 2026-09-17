@@ -39,28 +39,28 @@
     <iframe title="Noble Park: 24 Hour Master Bedroom Temperature" aria-label="Line chart" id="datawrapper-chart-8DPGa" src="https://datawrapper.dwcdn.net/8DPGa" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none; visibility: hidden;" height="996" data-external="1"></iframe><script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
 
   </div>
+  <script>
+    const iframe  = document.getElementById('datawrapper-chart-8DPGa');
+    const seconds = document.getElementById('seconds');
+
+    iframe.addEventListener('load', () => {
+      iframe.style.visibility = 'visible';
+    });
+
+    const trigger = new Image();
+    trigger.src = 'https://trigger.sharptools.io/rule/MGspFIdM2HiVO8WQ78u8/key/9d84348c-5aaa-4338-8778-1dfc968b8676';
+
+    let secondsRemaining = parseInt(seconds.textContent, 10);
+    const countdown = setInterval(() => {
+      secondsRemaining--;
+      seconds.textContent = secondsRemaining;
+      if (secondsRemaining <= 0) {
+        clearInterval(countdown);
+        document.getElementById('countdown').remove();
+        iframe.style.visibility = 'hidden';
+        iframe.src = iframe.src;
+      }
+    }, 1000);
+  </script>
 </body>
-<script>
-  const iframe = document.getElementById('datawrapper-chart-8DPGa');
-  const seconds = document.getElementById('seconds');
-
-  iframe.addEventListener('load', () => {
-    iframe.style.visibility = 'visible';
-  });
-
-  const trigger = new Image();
-  trigger.src = 'https://trigger.sharptools.io/rule/MGspFIdM2HiVO8WQ78u8/key/9d84348c-5aaa-4338-8778-1dfc968b8676';
-
-  let secondsRemaining = parseInt(seconds.textContent);
-  const countdown = setInterval(() => {
-    secondsRemaining--;
-    seconds.textContent = secondsRemaining;
-    if (secondsRemaining <= 0) {
-      clearInterval(countdown);
-      document.getElementById('countdown').remove();
-      iframe.style.visibility = 'hidden';
-      iframe.src = iframe.src;
-    }
-  }, 1000);
-</script>
 </html>
